@@ -1,5 +1,24 @@
+enum QuestLevel {
+  Easy = 'easy',
+  Medium = 'medium',
+  Hard = 'hard',
+}
+
+enum QuestType {
+  Adventures = 'adventures',
+  Horror = 'horror',
+  Mystic = 'mystic',
+  Detective = 'detective',
+  SciFi = 'sci-fi',
+}
+
+enum QuestDate {
+  Today = 'today',
+  Tomorrow = 'tomorrow',
+}
+
 enum Contact {
-  Hotline = '8 (000) 111-11-11'
+  Hotline = '8 (000) 111-11-11',
 }
 
 const enum GeneralNavItem {
@@ -32,4 +51,14 @@ const Setting = {
   authStatus: AuthStatus.Auth,
 };
 
-export { Contact, GeneralNavItem, AuthStatus, AppRoute, GeneralNav, Setting };
+export {
+  QuestLevel,
+  QuestType,
+  Contact,
+  QuestDate,
+  GeneralNavItem,
+  AuthStatus,
+  AppRoute,
+  GeneralNav,
+  Setting,
+};
