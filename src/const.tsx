@@ -1,15 +1,30 @@
+const QUESTS = [
+  'Склеп',
+  'Маньяк',
+  'Ритуал',
+  'История призраков',
+  'Тайны старого ососбняка',
+  'Хижина в лесу',
+  'Фатальный эксперимент',
+  'Метро 2033',
+  'Старый чердак',
+  'Последний рубеж',
+  'Марс-2056'
+];
+
 enum QuestLevel {
-  Easy = 'easy',
-  Medium = 'medium',
-  Hard = 'hard',
+  Easy = 'лёгкий',
+  Medium = 'средний',
+  Hard = 'сложный',
 }
 
+
 enum QuestType {
-  Adventures = 'adventures',
-  Horror = 'horror',
-  Mystic = 'mystic',
-  Detective = 'detective',
-  SciFi = 'sci-fi',
+  Adventures = 'Приключения',
+  Horror = 'Ужасы',
+  Mystic = 'Мистика',
+  Detective = 'Детектив',
+  SciFi = 'Sci-fi',
 }
 
 enum QuestDate {
@@ -48,10 +63,13 @@ const GeneralNav = {
 };
 
 const Setting = {
-  authStatus: AuthStatus.Auth,
+  authStatus: AuthStatus.NoAuth,
+  QuestsCount: 11
 };
 
+
 export {
+  QUESTS,
   QuestLevel,
   QuestType,
   Contact,
