@@ -5,10 +5,13 @@ type QuestCardProps = {
     QuestPreview,
     'title' | 'previewImg' | 'previewImgWebp' | 'level' | 'peopleMinMax'
   >;
+  isMyQuests?: boolean;
 };
 
-function QuestCard({ quest }: QuestCardProps): JSX.Element {
+function QuestCard({ quest, isMyQuests }: QuestCardProps): JSX.Element {
   const { title, previewImg, previewImgWebp, level, peopleMinMax } = quest;
+
+  const showMoreInformation = () => isMyQuests ? `<span class="quest-card__info">${сегодня},&nbsp;17:00. наб. реки Карповки&nbsp;5, лит&nbsp;П<br>м. Петроградская]</span>)` : '';
 
   return (
     <div className="quest-card">

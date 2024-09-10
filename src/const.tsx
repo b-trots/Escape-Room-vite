@@ -28,8 +28,8 @@ enum QuestType {
 }
 
 enum QuestDate {
-  Today = 'today',
-  Tomorrow = 'tomorrow',
+  Today = 'сегодня',
+  Tomorrow = 'завтра',
 }
 
 enum Contact {
@@ -63,7 +63,7 @@ const GeneralNav = {
 };
 
 const Setting = {
-  authStatus: AuthStatus.NoAuth,
+  authStatus: AuthStatus.Auth,
   QuestsCount: 11
 };
 
