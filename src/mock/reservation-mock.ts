@@ -31,7 +31,7 @@ function mockReservation(): ReservationType {
       level: faker.helpers.arrayElement(
         Object.values(QuestLevel)
       ) as QuestLevel,
-      type: faker.helpers.arrayElement(Object.values(QuestType)) as QuestType,
+      type: faker.helpers.arrayElement(Object.values(QuestType)),
       peopleMinMax: Array.from({ length: 2 }, () =>
         faker.number.int({ max: 10, min: 1 })
       ),

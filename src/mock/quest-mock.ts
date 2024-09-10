@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { QuestLevel, QUESTS, QuestType, Setting } from '../const';
-import { Quest} from '../types/quest';
+import { Quest } from '../types/quest';
 
 function mockQuest(): Quest {
   const title = faker.helpers.arrayElement(QUESTS);
@@ -11,7 +11,7 @@ function mockQuest(): Quest {
     previewImg: faker.image.urlLoremFlickr({ category: title }),
     previewImgWebp: faker.image.urlLoremFlickr({ category: title }),
     level: faker.helpers.arrayElement(Object.values(QuestLevel)) as QuestLevel,
-    type: faker.helpers.arrayElement(Object.values(QuestType)) as QuestType,
+    type: faker.helpers.arrayElement(Object.values(QuestType)),
     peopleMinMax: Array.from({ length: 2 }, () =>
       faker.number.int({ max: 10, min: 1 })
     ),
