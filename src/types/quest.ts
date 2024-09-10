@@ -8,8 +8,8 @@ interface Quest {
   title: string;
   previewImg: string;
   previewImgWebp: string;
-  level: QuestLevelType;
-  type: QuestTypeType;
+  level: QuestLevel;
+  type: QuestType;
   peopleMinMax: number[];
   description: string;
   coverImg: string;

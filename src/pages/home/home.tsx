@@ -4,7 +4,7 @@ import { FirstComponent } from '../../components/main/first-component/first-comp
 import { QuestCard } from '../../components/main/quest-card/quest-card';
 import { generateQuests } from '../../mock/quest-mock';
 
-function Home(): JSX.Element {
+function Home(): React.ReactNode {
   const quests = generateQuests();
 
   return (

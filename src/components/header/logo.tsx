@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
 
-function Logo(): JSX.Element {
+function Logo(): React.ReactNode {
   return (
     <Link
       className="logo header__logo"

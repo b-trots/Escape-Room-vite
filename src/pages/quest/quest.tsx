@@ -2,12 +2,12 @@ import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
 import { FirstComponent } from '../../components/main/first-component/first-component';
 
-function Quest():JSX.Element {
+function Quest(): React.ReactNode {
   return (
     <div>
-      <FirstComponent/>
+      <FirstComponent />
       <div className="wrapper">
-        <Header/>
+        <Header />
         <main className="decorated-page quest-page">
           <div className="decorated-page__decor" aria-hidden="true">
             <picture>
@@ -65,7 +65,7 @@ function Quest():JSX.Element {
             </div>
           </div>
         </main>
-        <Footer/>
+        <Footer />
       </div>
     </div>
   );

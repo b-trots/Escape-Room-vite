@@ -1,17 +1,37 @@
-import { QuestPreview } from '../../../types/quest';
+import { Quest } from '../../../types/quest';
+import { ReservationType } from '../../../types/reservation';
+import { correctTime } from '../../../utils/time-utils';
+import { CancelButton } from './cancel-button';
 
 type QuestCardProps = {
   quest: Pick<
-    QuestPreview,
+    Quest,
     'title' | 'previewImg' | 'previewImgWebp' | 'level' | 'peopleMinMax'
   >;
-  isMyQuests?: boolean;
+  reservation?: Pick<
+    ReservationType,
+    'date' | 'time' | 'location' | 'peopleCount'
+  >;
 };
 
-function QuestCard({ quest, isMyQuests }: QuestCardProps): JSX.Element {
+function QuestCard({ quest, reservation }: QuestCardProps): React.ReactNode {
   const { title, previewImg, previewImgWebp, level, peopleMinMax } = quest;
 
-  const showMoreInformation = () => isMyQuests ? `<span class="quest-card__info">${сегодня},&nbsp;17:00. наб. реки Карповки&nbsp;5, лит&nbsp;П<br>м. Петроградская]</span>)` : '';
+  const showQuestInfo = () => {
+    if (reservation) {
+      const { date, time, location } = reservation;
+      return (
+        <span className="quest-card__info">
+          {date}, {correctTime(time)}. {location?.address}
+        </span>
+      );
+    }
+  };
+
+  const showPeopleCount = () =>
+    reservation
+      ? `${reservation.peopleCount} чел`
+      : `${peopleMinMax[0]}–${peopleMinMax[1]} чел`;
 
   return (
     <div className="quest-card">
@@ -35,13 +55,14 @@ function QuestCard({ quest, isMyQuests }: QuestCardProps): JSX.Element {
           <a className="quest-card__link" href="quest.html">
             {title}
           </a>
+          {showQuestInfo()}
         </div>
         <ul className="tags quest-card__tags">
           <li className="tags__item">
             <svg width={11} height={14} aria-hidden="true">
               <use xlinkHref="#icon-person" />
             </svg>
-            {`${peopleMinMax[0]}–${peopleMinMax[1]} чел`}
+            {showPeopleCount()}
           </li>
           <li className="tags__item">
             <svg width={14} height={14} aria-hidden="true">
@@ -50,6 +71,7 @@ function QuestCard({ quest, isMyQuests }: QuestCardProps): JSX.Element {
             {level}
           </li>
         </ul>
+        {reservation && <CancelButton />}
       </div>
     </div>
   );

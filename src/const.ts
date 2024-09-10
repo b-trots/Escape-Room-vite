@@ -64,7 +64,8 @@ const GeneralNav = {
 
 const Setting = {
   authStatus: AuthStatus.Auth,
-  QuestsCount: 11
+  QuestsCount: 11,
+  ReservationsCount: 3
 };
 
 

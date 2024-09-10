@@ -1,27 +1,22 @@
-import { QuestDateType } from './booking';
-import { QuestLevelType, QuestTypeType } from './quest';
+import { Quest } from './quest';
 
-interface Reservation {
-  date: QuestDateType;
+type DateType = 'сегодня' | 'завтра';
+
+type LocationType = {
+  address: string;
+  coords: number[];
+};
+
+interface ReservationType {
+  date: DateType;
   time: string;
   contactPerson: string;
   phone: string;
   withChildren: boolean;
   peopleCount: number;
   id: string;
-  location: {
-    address: string;
-    coords: number[];
-  };
-  quest: {
-    id: string;
-    title: string;
-    previewImg: string;
-    previewImgWebp: string;
-    level: QuestLevelType;
-    type: QuestTypeType;
-    peopleMinMax: number[];
-  };
+  location: LocationType;
+  quest: Omit<Quest, 'description' | 'coverImg' | 'coverImgWebp'>;
 }
 
-export type { Reservation };
+export type { DateType, LocationType, ReservationType };

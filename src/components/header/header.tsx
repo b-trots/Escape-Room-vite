@@ -2,7 +2,7 @@ import { Logo } from './logo';
 import { MainNav } from './main-nav';
 import { SideNav } from './side-nav';
 
-function Header(): JSX.Element {
+function Header(): React.ReactNode {
   return (
     <header className="header">
       <div className="container container--size-l">

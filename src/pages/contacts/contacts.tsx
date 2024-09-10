@@ -1,29 +1,16 @@
 import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
+import { BackgroundDecoration } from '../../components/main/background-decoration/background-decoration';
 import { FirstComponent } from '../../components/main/first-component/first-component';
 
-function Contacts():JSX.Element {
+function Contacts(): React.ReactNode {
   return (
     <div>
-      <FirstComponent/>
+      <FirstComponent />
       <div className="wrapper">
-        <Header/>
+        <Header />
         <main className="page-content decorated-page">
-          <div className="decorated-page__decor" aria-hidden="true">
-            <picture>
-              <source
-                type="image/webp"
-                srcSet="img/content/maniac/maniac-bg-size-m.webp, img/content/maniac/maniac-bg-size-m@2x.webp 2x"
-              />
-              <img
-                src="img/content/maniac/maniac-bg-size-m.jpg"
-                srcSet="img/content/maniac/maniac-bg-size-m@2x.jpg 2x"
-                width={1366}
-                height={1959}
-                alt=""
-              />
-            </picture>
-          </div>
+          <BackgroundDecoration />
           <div className="container">
             <div className="page-content__title-wrapper page-content__title-wrapper--underlined">
               <p className="subtitle page-content__subtitle">

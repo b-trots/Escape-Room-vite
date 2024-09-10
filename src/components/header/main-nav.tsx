@@ -1,9 +1,18 @@
 import { Link } from 'react-router-dom';
-import { AppRoute, AuthStatus, GeneralNav, GeneralNavItem, Setting } from '../../const';
+import {
+  AppRoute,
+  AuthStatus,
+  GeneralNav,
+  GeneralNavItem,
+  Setting,
+} from '../../const';
 
-function MainNav(): JSX.Element {
+function MainNav(): React.ReactNode {
   const authStatus = Setting.authStatus;
-  const getGeneralNavElementsCount = () => (authStatus === AuthStatus.Auth ? GeneralNavItem.Auth : GeneralNavItem.NoAuth);
+  const getGeneralNavElementsCount = () =>
+    authStatus === AuthStatus.Auth
+      ? GeneralNavItem.Auth
+      : GeneralNavItem.NoAuth;
   const navItemsCount = getGeneralNavElementsCount();
 
   return (

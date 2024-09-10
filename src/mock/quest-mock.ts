@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker';
 import { QuestLevel, QUESTS, QuestType, Setting } from '../const';
 import { Quest} from '../types/quest';
 
-export function mockQuest(): Quest {
+function mockQuest(): Quest {
   const title = faker.helpers.arrayElement(QUESTS);
 
   return {

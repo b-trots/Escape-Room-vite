@@ -2,12 +2,12 @@ import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
 import { FirstComponent } from '../../components/main/first-component/first-component';
 
-function Login():JSX.Element {
+function Login(): React.ReactNode {
   return (
     <div>
-      <FirstComponent/>
+      <FirstComponent />
       <div className="wrapper">
-        <Header/>
+        <Header />
         <main className="decorated-page login">
           <div className="decorated-page__decor" aria-hidden="true">
             <picture>
@@ -95,7 +95,7 @@ function Login():JSX.Element {
             </div>
           </div>
         </main>
-        <Footer/>
+        <Footer />
       </div>
     </div>
   );
