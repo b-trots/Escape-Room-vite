@@ -1,4 +1,4 @@
-function FirstComponent(): React.ReactNode {
+function FirstComponent(): JSX.Element {
   return (
     <div className="visually-hidden">
       <svg

@@ -3,7 +3,7 @@ import { Header } from '../../components/header/header';
 import { BackgroundDecoration } from '../../components/main/background-decoration/background-decoration';
 import { FirstComponent } from '../../components/main/first-component/first-component';
 
-function Booking(): React.ReactNode {
+function Booking(): JSX.Element {
   return (
     <>
       <FirstComponent />

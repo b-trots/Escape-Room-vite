@@ -1,7 +1,7 @@
 import { Hotline } from './hotline';
 import { LoginButton } from './login-button';
 
-function SideNav(): React.ReactNode {
+function SideNav(): JSX.Element {
   return (
     <div className="header__side-nav">
       <LoginButton />

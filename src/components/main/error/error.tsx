@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import css from './style.module.css';
 
-function Error(): React.ReactNode {
+function Error(): JSX.Element {
   return (
     <div className={css.root}>
       <div className={css.smile}>☹</div>

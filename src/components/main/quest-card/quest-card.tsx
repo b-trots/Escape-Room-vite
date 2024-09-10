@@ -14,7 +14,7 @@ type QuestCardProps = {
   >;
 };
 
-function QuestCard({ quest, reservation }: QuestCardProps): React.ReactNode {
+function QuestCard({ quest, reservation }: QuestCardProps): JSX.Element {
   const { title, previewImg, previewImgWebp, level, peopleMinMax } = quest;
 
   const showQuestInfo = () => {

@@ -1,4 +1,4 @@
-function BackgroundDecoration(): React.ReactNode {
+function BackgroundDecoration(): JSX.Element {
   return (
     <div className="decorated-page__decor" aria-hidden="true">
       <picture>

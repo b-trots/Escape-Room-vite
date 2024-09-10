@@ -2,7 +2,7 @@ import { BackgroundDecoration } from '../../components/main/background-decoratio
 import { QuestCard } from '../../components/main/quest-card/quest-card';
 import { generateReservations } from '../../mock/reservation-mock';
 
-function MainMyQuests(): React.ReactNode {
+function MainMyQuests(): JSX.Element {
   const reservations = generateReservations();
 
   return (

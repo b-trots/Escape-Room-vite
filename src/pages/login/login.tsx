@@ -2,7 +2,7 @@ import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
 import { FirstComponent } from '../../components/main/first-component/first-component';
 
-function Login(): React.ReactNode {
+function Login(): JSX.Element {
   return (
     <div>
       <FirstComponent />

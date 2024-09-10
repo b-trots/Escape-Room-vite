@@ -1,4 +1,4 @@
-function Footer(): React.ReactNode {
+function Footer(): JSX.Element {
   return (
     <div className="container container--size-l">
       <div className="socials">

@@ -1,6 +1,6 @@
 import { Contact } from '../../const';
 
-function Hotline(): React.ReactNode {
+function Hotline(): JSX.Element {
   return (
     <a
       className="link header__side-item header__phone-link"

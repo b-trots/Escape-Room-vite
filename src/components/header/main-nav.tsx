@@ -7,7 +7,7 @@ import {
   Setting,
 } from '../../const';
 
-function MainNav(): React.ReactNode {
+function MainNav(): JSX.Element {
   const authStatus = Setting.authStatus;
   const getGeneralNavElementsCount = () =>
     authStatus === AuthStatus.Auth

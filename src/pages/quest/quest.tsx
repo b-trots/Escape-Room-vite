@@ -2,7 +2,7 @@ import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
 import { FirstComponent } from '../../components/main/first-component/first-component';
 
-function Quest(): React.ReactNode {
+function Quest(): JSX.Element {
   return (
     <div>
       <FirstComponent />

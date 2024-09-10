@@ -3,7 +3,7 @@ import { Header } from '../../components/header/header';
 import { FirstComponent } from '../../components/main/first-component/first-component';
 import { MainMyQuests } from './main-my-quests';
 
-function MyQuests(): React.ReactNode {
+function MyQuests(): JSX.Element {
   return (
     <div>
       <FirstComponent />

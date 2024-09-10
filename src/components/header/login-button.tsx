@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { AppRoute, AuthStatus, Setting } from '../../const';
 
-function LoginButton(): React.ReactNode {
+function LoginButton(): JSX.Element {
   const authStatus = Setting.authStatus;
   const isAuth = authStatus === AuthStatus.Auth;
 

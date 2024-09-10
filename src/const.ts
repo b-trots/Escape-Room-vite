@@ -9,22 +9,42 @@ const QUESTS = [
   'Метро 2033',
   'Старый чердак',
   'Последний рубеж',
-  'Марс-2056'
+  'Марс-2056',
 ];
 
+const FILTER_BY_TOPIC = [
+  'all',
+  'adventure',
+  'horror',
+  'mystic',
+  'detective',
+  'sciFi',
+] as const;
+const FILTER_BY_COMPLEXITY = ['any', 'easy', 'middle', 'hard'] as const;
+
 enum QuestLevel {
-  Easy = 'лёгкий',
-  Medium = 'средний',
-  Hard = 'сложный',
+  Any = 'Любой',
+  Easy = 'Лёгкий',
+  Middle = 'Средний',
+  Hard = 'Сложный',
 }
 
-
 enum QuestType {
-  Adventures = 'Приключения',
+  All = 'Все квесты',
+  Adventure = 'Приключения',
   Horror = 'Ужасы',
   Mystic = 'Мистика',
   Detective = 'Детектив',
   SciFi = 'Sci-fi',
+}
+
+enum QuestLevelIcon {
+  All = 'all-quests',
+  Adventure = 'adventure',
+  Horror = 'horror',
+  Mystic = 'mystic',
+  Detective = 'detective',
+  SciFi = 'sci-fi',
 }
 
 enum QuestDate {
@@ -65,14 +85,16 @@ const GeneralNav = {
 const Setting = {
   authStatus: AuthStatus.Auth,
   QuestsCount: 11,
-  ReservationsCount: 3
+  ReservationsCount: 3,
 };
-
 
 export {
   QUESTS,
+  FILTER_BY_TOPIC,
+  FILTER_BY_COMPLEXITY,
   QuestLevel,
   QuestType,
+  QuestLevelIcon,
   Contact,
   QuestDate,
   GeneralNavItem,
