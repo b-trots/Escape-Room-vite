@@ -10,7 +10,7 @@ function TopicFilterItem({ filter }: TopicFilterItemParams): JSX.Element {
 
   return (
     <li key={filter} className="filter__item">
-      <input type="radio" name="type" id={filter} defaultChecked />
+      <input type="radio" name="type" id={filter} />
       <label className="filter__label" htmlFor={filter}>
         <svg
           className="filter__icon"

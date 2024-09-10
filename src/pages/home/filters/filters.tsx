@@ -1,5 +1,5 @@
-import { ComplexityFilter } from '../../components/main/filters/complexity-filter/complexity-filter';
-import { TopicFilter } from '../../components/main/filters/topic-filter/topic-filter';
+import { ComplexityFilter } from './complexity-filter/complexity-filter';
+import { TopicFilter } from './topic-filter/topic-filter';
 
 function Filters(): JSX.Element {
   return (

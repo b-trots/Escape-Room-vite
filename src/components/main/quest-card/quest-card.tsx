@@ -1,12 +1,14 @@
+import { Link } from 'react-router-dom';
 import { Quest } from '../../../types/quest';
 import { ReservationType } from '../../../types/reservation';
 import { correctTime } from '../../../utils/time-utils';
 import { CancelButton } from './cancel-button';
+import { AppRoute } from '../../../const';
 
 type QuestCardProps = {
   quest: Pick<
     Quest,
-    'title' | 'previewImg' | 'previewImgWebp' | 'level' | 'peopleMinMax'
+    'id' | 'title' | 'previewImg' | 'previewImgWebp' | 'level' | 'peopleMinMax'
   >;
   reservation?: Pick<
     ReservationType,
@@ -15,7 +17,7 @@ type QuestCardProps = {
 };
 
 function QuestCard({ quest, reservation }: QuestCardProps): JSX.Element {
-  const { title, previewImg, previewImgWebp, level, peopleMinMax } = quest;
+  const { id, title, previewImg, previewImgWebp, level, peopleMinMax } = quest;
 
   const showQuestInfo = () => {
     if (reservation) {
@@ -52,9 +54,9 @@ function QuestCard({ quest, reservation }: QuestCardProps): JSX.Element {
       </div>
       <div className="quest-card__content">
         <div className="quest-card__info-wrapper">
-          <a className="quest-card__link" href="quest.html">
+          <Link className="quest-card__link" to={AppRoute.Quest.replace(':id', id)}>
             {title}
-          </a>
+          </Link>
           {showQuestInfo()}
         </div>
         <ul className="tags quest-card__tags">

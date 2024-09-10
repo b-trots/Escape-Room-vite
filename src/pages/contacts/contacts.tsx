@@ -10,7 +10,7 @@ function Contacts(): JSX.Element {
       <div className="wrapper">
         <Header />
         <main className="page-content decorated-page">
-          <BackgroundDecoration />
+          <BackgroundDecoration isBlur />
           <div className="container">
             <div className="page-content__title-wrapper page-content__title-wrapper--underlined">
               <p className="subtitle page-content__subtitle">

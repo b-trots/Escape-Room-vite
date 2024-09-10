@@ -1,5 +1,7 @@
 import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
+import { BackgroundDecoration } from '../../components/main/background-decoration/background-decoration';
+import { BookButton } from '../../components/main/book-button';
 import { FirstComponent } from '../../components/main/first-component/first-component';
 
 function Quest(): JSX.Element {
@@ -9,21 +11,7 @@ function Quest(): JSX.Element {
       <div className="wrapper">
         <Header />
         <main className="decorated-page quest-page">
-          <div className="decorated-page__decor" aria-hidden="true">
-            <picture>
-              <source
-                type="image/webp"
-                srcSet="img/content/maniac/maniac-size-m.webp, img/content/maniac/maniac-size-m@2x.webp 2x"
-              />
-              <img
-                src="img/content/maniac/maniac-size-m.jpg"
-                srcSet="img/content/maniac/maniac-size-m@2x.jpg 2x"
-                width={1366}
-                height={768}
-                alt=""
-              />
-            </picture>
-          </div>
+          <BackgroundDecoration />
           <div className="container container--size-l">
             <div className="quest-page__content">
               <h1 className="title title--size-l title--uppercase quest-page__title">
@@ -56,12 +44,7 @@ function Quest(): JSX.Element {
                 в&nbsp;стрессовой ситуации, помочь другим, разобраться что
                 произошло и&nbsp;выбраться из&nbsp;комнаты?
               </p>
-              <a
-                className="btn btn--accent btn--cta quest-page__btn"
-                href="booking.html"
-              >
-                Забронировать
-              </a>
+              <BookButton />
             </div>
           </div>
         </main>

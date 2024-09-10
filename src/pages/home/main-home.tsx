@@ -1,6 +1,6 @@
 import { QuestCard } from '../../components/main/quest-card/quest-card';
 import { generateQuests } from '../../mock/quest-mock';
-import { Filters } from './filters';
+import { Filters } from './filters/filters';
 import { Title } from './title';
 
 function MainHome(): JSX.Element {

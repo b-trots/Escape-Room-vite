@@ -8,7 +8,7 @@ function ComplexityFilter(): JSX.Element {
       <ul className="filter__list">
         {FILTER_BY_COMPLEXITY.map((filter) => (
           <li key={filter}className="filter__item">
-            <input type="radio" name="level" id={filter} defaultChecked />
+            <input type="radio" name="level" id={filter} />
             <label className="filter__label" htmlFor={filter}>
               <span className="filter__label-text">
                 {getFilterParameters(filter, QuestLevel)}

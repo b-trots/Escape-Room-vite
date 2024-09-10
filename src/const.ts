@@ -22,40 +22,38 @@ const FILTER_BY_TOPIC = [
 ] as const;
 const FILTER_BY_COMPLEXITY = ['any', 'easy', 'middle', 'hard'] as const;
 
-
 const QuestType = {
-  All:{
+  All: {
     label: 'Все квесты',
     icon: 'all-quests',
     iconSize: [26, 30],
   },
-  Adventure:{
+  Adventure: {
     label: 'Приключения',
     icon: 'adventure',
     iconSize: [36, 30],
   },
-  Horror:{
+  Horror: {
     label: 'Ужасы',
     icon: 'horror',
     iconSize: [30, 30],
   },
-  Mystic:{
+  Mystic: {
     label: 'Мистика',
     icon: 'mystic',
     iconSize: [30, 30],
   },
-  Detective:{
+  Detective: {
     label: 'Детектив',
     icon: 'detective',
     iconSize: [40, 30],
   },
-  SciFi:{
+  SciFi: {
     label: 'Sci-fi',
     icon: 'sci-fi',
     iconSize: [28, 30],
-  }
+  },
 } as const;
-
 
 enum QuestLevel {
   Any = 'Любой',
@@ -100,10 +98,15 @@ const GeneralNav = {
 };
 
 const Setting = {
-  authStatus: AuthStatus.Auth,
+  authStatus: AuthStatus.NoAuth,
   QuestsCount: 11,
   ReservationsCount: 3,
 };
+
+const BackgroundSetting = {
+  Original: 768,
+  Blur: 1959,
+} as const;
 
 export {
   QUESTS,
@@ -118,4 +121,5 @@ export {
   AppRoute,
   GeneralNav,
   Setting,
+  BackgroundSetting,
 };

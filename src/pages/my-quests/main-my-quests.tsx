@@ -7,7 +7,7 @@ function MainMyQuests(): JSX.Element {
 
   return (
     <main className="page-content decorated-page">
-      <BackgroundDecoration />
+      <BackgroundDecoration isBlur/>
       <div className="container">
         <div className="page-content__title-wrapper">
           <h1 className="title title--size-m page-content__title">
