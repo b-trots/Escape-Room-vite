@@ -1,7 +1,7 @@
-import { QuestLevel, QuestType } from '../const';
+import { QUEST_LEVEL, QUEST_TYPE } from '../const';
 
-type QuestLevelType = keyof typeof QuestLevel;
-type QuestTypeType = keyof typeof QuestType;
+type QuestLevel = (typeof QUEST_LEVEL)[number];
+type QuestType = (typeof QUEST_TYPE)[number];
 
 interface Quest {
   id: string;
@@ -18,4 +18,4 @@ interface Quest {
 
 type QuestPreview = Omit<Quest, 'description' | 'coverImg' | 'coverImgWebp'>;
 
-export type { QuestLevelType, QuestTypeType, Quest, QuestPreview };
+export type { Quest, QuestPreview };

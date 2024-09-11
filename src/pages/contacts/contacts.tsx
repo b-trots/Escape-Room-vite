@@ -1,9 +1,25 @@
+import React from 'react';
 import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
 import { BackgroundDecoration } from '../../components/main/background-decoration/background-decoration';
 import { FirstComponent } from '../../components/main/first-component/first-component';
+import { OrganizationContact, OrganizationContactKeys} from '../../const';
+import { OrganizationContactType } from '../../types/common';
 
 function Contacts(): JSX.Element {
+  const correctInfo = (item: OrganizationContactType, info: string) => {
+    if (item === OrganizationContactKeys[0]) {
+      const contactInfo = info.split(',');
+      return (
+        <>
+          {contactInfo[0]}, {React.createElement('br')} {contactInfo[1]},
+          {contactInfo[2]}
+        </>
+      );
+    }
+    return info;
+  };
+
   return (
     <div>
       <FirstComponent />
@@ -22,37 +38,17 @@ function Contacts(): JSX.Element {
             </div>
             <div className="contacts">
               <dl className="contacts__list">
-                <div className="contacts__item">
-                  <dt className="contacts__dt">Адрес</dt>
-                  <dd className="contacts__dd">
-                    <address className="contacts__address">
-                      Санкт-Петербург,
-                      <br /> Набережная реки Карповка, д 5П
-                    </address>
-                  </dd>
-                </div>
-                <div className="contacts__item">
-                  <dt className="contacts__dt">Режим работы</dt>
-                  <dd className="contacts__dd">
-                    Ежедневно, с&nbsp;10:00 до&nbsp;22:00
-                  </dd>
-                </div>
-                <div className="contacts__item">
-                  <dt className="contacts__dt">Телефон</dt>
-                  <dd className="contacts__dd">
-                    <a className="link" href="tel:88003335599">
-                      8 (000) 111-11-11
-                    </a>
-                  </dd>
-                </div>
-                <div className="contacts__item">
-                  <dt className="contacts__dt">E–mail</dt>
-                  <dd className="contacts__dd">
-                    <a className="link" href="mailto:info@escape-room.ru">
-                      info@escape-room.ru
-                    </a>
-                  </dd>
-                </div>
+                {Object.entries(OrganizationContact).map((contactItem) => (
+                  <div className="contacts__item" key={contactItem[0]}>
+                    <dt className="contacts__dt">{contactItem[1][0]}</dt>
+                    <dd className="contacts__dd">
+                      <address className="contacts__address">
+                        {correctInfo(contactItem[0], contactItem[1][1])}
+                      </address>
+                    </dd>
+                  </div>
+                ))}
+
               </dl>
               <div className="contacts__map">
                 <div className="map">

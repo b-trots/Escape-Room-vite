@@ -1,14 +1,15 @@
-import { QuestDate } from '../const';
+import { QUEST_DATE, QuestDate } from '../const';
 
-type QuestDateType = keyof typeof QuestDate;
+type QuestDate = typeof QUEST_DATE;
 
-interface TimeInterval {
+interface Slot {
   time: string;
   isAvailable: boolean;
 }
 
-interface Slot {
-  [key: string]: TimeInterval[];
+interface DaySlots{
+  today: Slot[];
+  tomorrow: Slot[];
 }
 
 interface Location {
@@ -19,9 +20,7 @@ interface Location {
 interface Booking {
   id: string;
   location: Location;
-  slots: {
-    [key: string]: Slot[];
-  };
+  slots:DaySlots;
 }
 
 interface NewBooking {
@@ -34,4 +33,4 @@ interface NewBooking {
   placeId: string;
 }
 
-export type { QuestDateType, Booking, NewBooking };
+export type { Slot, DaySlots, QuestDateType, Booking, NewBooking };

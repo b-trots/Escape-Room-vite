@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { QUESTS, QuestDate, QuestLevel, QuestType, Setting } from '../const';
+import { QUESTS, QUEST_LEVEL, QUEST_TYPE, QuestDate, QuestLevel, QuestType, Setting } from '../const';
 import { ReservationType } from '../types/reservation';
 import { ADDRESS } from './const';
 
@@ -28,10 +28,8 @@ function mockReservation(): ReservationType {
       title,
       previewImg: faker.image.urlLoremFlickr({ category: title }),
       previewImgWebp: faker.image.urlLoremFlickr({ category: title }),
-      level: faker.helpers.arrayElement(
-        Object.values(QuestLevel)
-      ) as QuestLevel,
-      type: faker.helpers.arrayElement(Object.values(QuestType)),
+      level: faker.helpers.arrayElement(QUEST_LEVEL),
+      type: faker.helpers.arrayElement(QUEST_TYPE),
       peopleMinMax: Array.from({ length: 2 }, () =>
         faker.number.int({ max: 10, min: 1 })
       ),

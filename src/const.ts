@@ -21,6 +21,14 @@ const FILTER_BY_TOPIC = [
   'sciFi',
 ] as const;
 const FILTER_BY_COMPLEXITY = ['any', 'easy', 'middle', 'hard'] as const;
+const QUEST_TYPE = [
+  'Приключения',
+  'Ужасы',
+  'Мистика',
+  'Детектив',
+  'Sci-fi',
+] as const;
+const QUEST_LEVEL = ['Лёгкий', 'Средний', 'Сложный'] as const;
 
 const QuestType = {
   All: {
@@ -66,6 +74,7 @@ enum QuestDate {
   Today = 'сегодня',
   Tomorrow = 'завтра',
 }
+const QUEST_DATE = ['сегодня', 'завтра'];
 
 enum Contact {
   Hotline = '8 (000) 111-11-11',
@@ -98,7 +107,7 @@ const GeneralNav = {
 };
 
 const Setting = {
-  authStatus: AuthStatus.NoAuth,
+  authStatus: AuthStatus.Auth,
   QuestsCount: 11,
   ReservationsCount: 3,
 };
@@ -108,10 +117,21 @@ const BackgroundSetting = {
   Blur: 1959,
 } as const;
 
+const OrganizationContact = {
+  Address: ['Адрес', 'Санкт-Петербург, Набережная реки Карповка, д 5П'],
+  OpeningHours: ['Режим работы', 'Ежедневно, с 10:00 до 22:00'],
+  Phone: ['Телефон', '8 (000) 111-11-11'],
+  Email: ['E–mail', 'info@escape-room.ru'],
+};
+const OrganizationContactKeys = Object.keys(OrganizationContact);
+
 export {
   QUESTS,
   FILTER_BY_TOPIC,
   FILTER_BY_COMPLEXITY,
+  QUEST_TYPE,
+  QUEST_LEVEL,
+  QUEST_DATE,
   QuestLevel,
   QuestType,
   Contact,
@@ -122,4 +142,6 @@ export {
   GeneralNav,
   Setting,
   BackgroundSetting,
+  OrganizationContact,
+  OrganizationContactKeys,
 };
