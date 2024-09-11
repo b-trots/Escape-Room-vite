@@ -1,4 +1,4 @@
-import { FILTER_BY_COMPLEXITY, QuestLevel } from '../../../../const';
+import { FILTER_BY_COMPLEXITY, QuestLevel } from '../../../../const/const';
 import { getFilterParameters } from '../../../../utils/utils';
 
 function ComplexityFilter(): JSX.Element {
@@ -7,7 +7,7 @@ function ComplexityFilter(): JSX.Element {
       <legend className="visually-hidden">Сложность</legend>
       <ul className="filter__list">
         {FILTER_BY_COMPLEXITY.map((filter) => (
-          <li key={filter}className="filter__item">
+          <li key={filter} className="filter__item">
             <input type="radio" name="level" id={filter} />
             <label className="filter__label" htmlFor={filter}>
               <span className="filter__label-text">

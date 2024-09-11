@@ -1,6 +1,12 @@
-function PrivacyPolicy(): JSX.Element {
+
+type PrivacyPolicyProps={
+  className: string;
+}
+
+function PrivacyPolicy({className}:PrivacyPolicyProps): JSX.Element {
+
   return (
-    <label className="custom-checkbox login-form__checkbox">
+    <label className={`custom-checkbox ${className}`}>
       <input
         type="checkbox"
         id="id-order-agreement"

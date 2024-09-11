@@ -1,3 +1,5 @@
+import { UserDataForBooking } from './const-for-user';
+
 const QUESTS = [
   'Склеп',
   'Маньяк',
@@ -12,6 +14,12 @@ const QUESTS = [
   'Марс-2056',
 ];
 
+
+
+
+export type UserDataBooking = keyof typeof UserDataForBooking;
+
+
 const FILTER_BY_TOPIC = [
   'all',
   'adventure',
@@ -20,6 +28,7 @@ const FILTER_BY_TOPIC = [
   'detective',
   'sciFi',
 ] as const;
+
 const FILTER_BY_COMPLEXITY = ['any', 'easy', 'middle', 'hard'] as const;
 const QUEST_TYPE = [
   'Приключения',
@@ -27,8 +36,10 @@ const QUEST_TYPE = [
   'Мистика',
   'Детектив',
   'Sci-fi',
+
 ] as const;
 const QUEST_LEVEL = ['Лёгкий', 'Средний', 'Сложный'] as const;
+
 
 const QuestType = {
   All: {
@@ -70,15 +81,14 @@ enum QuestLevel {
   Hard = 'Сложный',
 }
 
-enum QuestDate {
-  Today = 'сегодня',
-  Tomorrow = 'завтра',
-}
+const QuestDate={
+  Today:'сегодня',
+  Tomorrow:'завтра',
+};
+
 const QUEST_DATE = ['сегодня', 'завтра'];
 
-enum Contact {
-  Hotline = '8 (000) 111-11-11',
-}
+
 
 const enum GeneralNavItem {
   Auth = 3,
@@ -134,7 +144,6 @@ export {
   QUEST_DATE,
   QuestLevel,
   QuestType,
-  Contact,
   QuestDate,
   GeneralNavItem,
   AuthStatus,
@@ -143,5 +152,5 @@ export {
   Setting,
   BackgroundSetting,
   OrganizationContact,
-  OrganizationContactKeys,
+  OrganizationContactKeys
 };

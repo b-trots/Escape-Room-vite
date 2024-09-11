@@ -1,14 +1,17 @@
+import {SubTitleName, TitleName} from '../../const/app-const';
 function Title(): JSX.Element {
   return (
     <div className="page-content__title-wrapper">
       <h1 className="subtitle page-content__subtitle">
-        квесты в Санкт-Петербурге
+        {SubTitleName.Home}
       </h1>
       <h2 className="title title--size-m page-content__title">
-        Выберите тематику
+        {TitleName.Home}
+
       </h2>
     </div>
   );
 }
 
 export { Title };
+

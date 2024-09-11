@@ -1,5 +1,11 @@
 import { faker } from '@faker-js/faker';
-import { QUEST_LEVEL, QUEST_TYPE, QuestLevel, QUESTS, Setting } from '../const';
+import {
+  QUEST_LEVEL,
+  QUEST_TYPE,
+  QuestLevel,
+  QUESTS,
+  Setting,
+} from '../const/const';
 import { Quest } from '../types/quest';
 
 function mockQuest(): Quest {

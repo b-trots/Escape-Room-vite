@@ -5,7 +5,7 @@ import {
   GeneralNav,
   GeneralNavItem,
   Setting,
-} from '../../const';
+} from '../../const/const';
 
 function MainNav(): JSX.Element {
   const authStatus = Setting.authStatus;

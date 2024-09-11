@@ -1,4 +1,4 @@
-import { BackgroundSetting } from '../../../const';
+import { BackgroundSetting } from '../../../const/const';
 
 type BackgroundDecorationProps = {
   isBlur?: boolean;
@@ -8,7 +8,9 @@ function BackgroundDecoration({
   isBlur,
 }: BackgroundDecorationProps): JSX.Element {
   const blurImg = isBlur ? '-bg-' : '-';
-  const blurImgSize = isBlur ? BackgroundSetting.Blur : BackgroundSetting.Original;
+  const blurImgSize = isBlur
+    ? BackgroundSetting.Blur
+    : BackgroundSetting.Original;
 
   return (
     <div className="decorated-page__decor" aria-hidden="true">

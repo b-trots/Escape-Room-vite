@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { AppRoute } from '../../const';
+import { AppRoute } from '../../const/const';
+import { ActionButton } from '../../const/app-const';
 
 function BookButton(): JSX.Element {
   return (
@@ -7,7 +8,7 @@ function BookButton(): JSX.Element {
       to={AppRoute.Booking}
       className="btn btn--accent btn--cta quest-page__btn"
     >
-      Забронировать
+      {ActionButton.Booking}
     </Link>
   );
 }

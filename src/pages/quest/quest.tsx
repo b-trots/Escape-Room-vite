@@ -1,9 +1,10 @@
 import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
 import { BackgroundDecoration } from '../../components/main/background-decoration/background-decoration';
-import { BookButton } from '../../components/main/book-button';
+import { BookButton } from './book-button';
 import { FirstComponent } from '../../components/main/first-component/first-component';
 import { generateQuests } from '../../mock/quest-mock';
+import { SelectedInfo } from '../../const/app-const';
 const quest = generateQuests()[0];
 
 function Quest(): JSX.Element {
@@ -21,7 +22,7 @@ function Quest(): JSX.Element {
                 {title}
               </h1>
               <p className="subtitle quest-page__subtitle">
-                <span className="visually-hidden">Жанр:</span>{type}
+                <span className="visually-hidden">{SelectedInfo.Genre}</span>{type}
               </p>
               <ul className="tags tags--size-l quest-page__tags">
                 <li className="tags__item">

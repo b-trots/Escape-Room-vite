@@ -1,4 +1,4 @@
-import { QuestType } from '../../../../const';
+import { QuestType } from '../../../../const/const';
 import { FilterTopicType } from '../../../../types/common';
 import { getFilterParameters } from '../../../../utils/utils';
 

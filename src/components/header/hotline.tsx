@@ -1,4 +1,5 @@
-import { Contact } from '../../const';
+import { Contact } from '../../const/app-const';
+
 
 function Hotline(): JSX.Element {
   return (

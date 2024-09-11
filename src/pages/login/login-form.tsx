@@ -1,3 +1,11 @@
+import {
+  ActionButton,
+  PrivacyPolicyClass,
+  TitleName,
+} from '../../const/app-const';
+import { UserDataForLogin } from '../../const/const-for-user';
+import { UserDataLoginType } from '../../types/common';
+import { UserData } from '../booking/user-data-to-booking';
 import { PrivacyPolicy } from './privacy-policy';
 
 function LoginForm(): JSX.Element {
@@ -8,41 +16,23 @@ function LoginForm(): JSX.Element {
       method="post"
     >
       <div className="login-form__inner-wrapper">
-        <h1 className="title title--size-s login-form__title">Вход</h1>
+        <h1 className="title title--size-s login-form__title">
+          {TitleName.Login}
+        </h1>
         <div className="login-form__inputs">
-          <div className="custom-input login-form__input">
-            <label className="custom-input__label" htmlFor="email">
-              E&nbsp;–&nbsp;mail
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Адрес электронной почты"
-              required
-            />
-          </div>
-          <div className="custom-input login-form__input">
-            <label className="custom-input__label" htmlFor="password">
-              Пароль
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Пароль"
-              required
-            />
-          </div>
+          {Object.keys(UserDataForLogin).map((field) => (
+            <UserData field={field as UserDataLoginType} />
+          ))}
         </div>
+
         <button
           className="btn btn--accent btn--general login-form__submit"
           type="submit"
         >
-          Войти
+          {ActionButton.Login}
         </button>
       </div>
-      <PrivacyPolicy />
+      <PrivacyPolicy className={PrivacyPolicyClass.Login} />
     </form>
   );
 }

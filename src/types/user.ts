@@ -1,4 +1,4 @@
-import { AuthStatus } from '../const';
+import { AuthStatus } from '../const/const';
 
 type AuthType = keyof typeof AuthStatus;
 

@@ -3,7 +3,7 @@ import { Quest } from '../../../types/quest';
 import { ReservationType } from '../../../types/reservation';
 import { correctTime } from '../../../utils/time-utils';
 import { CancelButton } from './cancel-button';
-import { AppRoute } from '../../../const';
+import { AppRoute } from '../../../const/const';
 
 type QuestCardProps = {
   quest: Pick<
@@ -54,7 +54,10 @@ function QuestCard({ quest, reservation }: QuestCardProps): JSX.Element {
       </div>
       <div className="quest-card__content">
         <div className="quest-card__info-wrapper">
-          <Link className="quest-card__link" to={AppRoute.Quest.replace(':id', id)}>
+          <Link
+            className="quest-card__link"
+            to={AppRoute.Quest.replace(':id', id)}
+          >
             {title}
           </Link>
           {showQuestInfo()}

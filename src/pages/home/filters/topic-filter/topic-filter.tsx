@@ -1,4 +1,4 @@
-import { FILTER_BY_TOPIC } from '../../../../const';
+import { FILTER_BY_TOPIC } from '../../../../const/const';
 import { TopicFilterItem } from './topic-filter-item';
 
 function TopicFilter(): JSX.Element {

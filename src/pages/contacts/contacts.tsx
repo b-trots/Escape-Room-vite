@@ -3,8 +3,12 @@ import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
 import { BackgroundDecoration } from '../../components/main/background-decoration/background-decoration';
 import { FirstComponent } from '../../components/main/first-component/first-component';
-import { OrganizationContact, OrganizationContactKeys} from '../../const';
+import {
+  OrganizationContact,
+  OrganizationContactKeys,
+} from '../../const/const';
 import { OrganizationContactType } from '../../types/common';
+import { SubTitleName, TitleName } from '../../const/app-const';
 
 function Contacts(): JSX.Element {
   const correctInfo = (item: OrganizationContactType, info: string) => {
@@ -30,10 +34,10 @@ function Contacts(): JSX.Element {
           <div className="container">
             <div className="page-content__title-wrapper page-content__title-wrapper--underlined">
               <p className="subtitle page-content__subtitle">
-                квесты в&nbsp;Санкт-Петербурге
+                {SubTitleName.Home}
               </p>
               <h1 className="title title--size-m page-content__title">
-                Контакты
+                {TitleName.Contact}
               </h1>
             </div>
             <div className="contacts">
@@ -43,12 +47,11 @@ function Contacts(): JSX.Element {
                     <dt className="contacts__dt">{contactItem[1][0]}</dt>
                     <dd className="contacts__dd">
                       <address className="contacts__address">
-                        {correctInfo(contactItem[0], contactItem[1][1])}
+                        {correctInfo(contactItem[0] as keyof typeof OrganizationContact, contactItem[1][1])}
                       </address>
                     </dd>
                   </div>
                 ))}
-
               </dl>
               <div className="contacts__map">
                 <div className="map">
