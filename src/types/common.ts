@@ -1,3 +1,4 @@
+import { SocialApplication } from '../const/app-const';
 import {
   FILTER_BY_COMPLEXITY,
   FILTER_BY_TOPIC,
@@ -13,4 +14,14 @@ type UserDataLoginType = keyof typeof UserDataForLogin;
 type UserDataBookingType = keyof typeof UserDataForBooking;
 type UserDataFieldType = UserDataLoginType | UserDataBookingType;
 
-export type { FilterTopicType, FilterComplexityType, OrganizationContactType, UserDataLoginType, UserDataBookingType, UserDataFieldType };
+type SocialApplicationType = keyof typeof SocialApplication;
+
+export type {
+  FilterTopicType,
+  FilterComplexityType,
+  OrganizationContactType,
+  UserDataLoginType,
+  UserDataBookingType,
+  UserDataFieldType,
+  SocialApplicationType,
+};

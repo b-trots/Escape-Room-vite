@@ -20,7 +20,7 @@ enum TitleName {
   Home = 'Выберите тематику',
   Login = 'Вход',
   Booking = 'Бронирование квеста',
-  Contact = 'Контакты',
+  ContactInfo = 'Контакты',
   MyQuests = 'Мои бронирования',
 }
 
@@ -35,13 +35,36 @@ enum SubTitleName {
 
 enum LegendName {
   SelectDate = 'Выбор даты и времени',
-  Contact = 'Контактная информация',
+  ContactInfo = 'Контактная информация',
 }
 
 enum SelectedInfo {
   Address = 'Вы выбрали: ',
   Genre = 'Жанр:',
 }
+
+const SocialApplication = {
+  Skype: {
+    id: 'skype',
+    label: 'Skype',
+  },
+  Vk: {
+    id: 'vk',
+    label: 'ВКонтакте',
+  },
+} as const;
+
+const MapSetting = {
+  MapUrl:
+    'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+  MapCopyright:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  Markers: {
+    DefaultMarker: '../public/img/svg/pin-default.svg',
+    ActiveMarker: '../public/img/svg/pin-active.svg',
+  },
+  Zoom: 5,
+} as const;
 
 export {
   Checkbox,
@@ -53,4 +76,6 @@ export {
   LegendName,
   SelectedInfo,
   LoginLogoutButton,
+  SocialApplication,
+  MapSetting,
 };

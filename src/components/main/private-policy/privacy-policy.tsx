@@ -19,9 +19,9 @@ function PrivacyPolicy({className}:PrivacyPolicyProps): JSX.Element {
         </svg>
       </span>
       <span className="custom-checkbox__label">
-        Я&nbsp;согласен с
+        Я&nbsp;согласен с&nbsp;
         <a className="link link--active-silver link--underlined" href="#">
-          правилами обработки персональных данных
+           правилами обработки персональных данных
         </a>
         &nbsp;и пользовательским соглашением
       </span>

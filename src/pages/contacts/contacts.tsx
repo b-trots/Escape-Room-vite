@@ -9,8 +9,12 @@ import {
 } from '../../const/const';
 import { OrganizationContactType } from '../../types/common';
 import { SubTitleName, TitleName } from '../../const/app-const';
+import { generateBooking } from '../../mock/booking-mock';
+import { Map } from '../../components/map/map';
 
 function Contacts(): JSX.Element {
+  const booking = generateBooking()[0];
+  const { location } = booking;
   const correctInfo = (item: OrganizationContactType, info: string) => {
     if (item === OrganizationContactKeys[0]) {
       const contactInfo = info.split(',');
@@ -37,7 +41,7 @@ function Contacts(): JSX.Element {
                 {SubTitleName.Home}
               </p>
               <h1 className="title title--size-m page-content__title">
-                {TitleName.Contact}
+                {TitleName.ContactInfo}
               </h1>
             </div>
             <div className="contacts">
@@ -47,17 +51,16 @@ function Contacts(): JSX.Element {
                     <dt className="contacts__dt">{contactItem[1][0]}</dt>
                     <dd className="contacts__dd">
                       <address className="contacts__address">
-                        {correctInfo(contactItem[0] as keyof typeof OrganizationContact, contactItem[1][1])}
+                        {correctInfo(
+                          contactItem[0] as keyof typeof OrganizationContact,
+                          contactItem[1][1]
+                        )}
                       </address>
                     </dd>
                   </div>
                 ))}
               </dl>
-              <div className="contacts__map">
-                <div className="map">
-                  <div className="map__container" />
-                </div>
-              </div>
+              <Map bemBlock="contacts__" location={location} />
             </div>
           </div>
         </main>

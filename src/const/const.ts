@@ -1,3 +1,4 @@
+import { QuestDateType } from '../types/common';
 import { UserDataForBooking } from './const-for-user';
 
 const QUESTS = [
@@ -14,11 +15,7 @@ const QUESTS = [
   'Марс-2056',
 ];
 
-
-
-
 export type UserDataBooking = keyof typeof UserDataForBooking;
-
 
 const FILTER_BY_TOPIC = [
   'all',
@@ -36,10 +33,8 @@ const QUEST_TYPE = [
   'Мистика',
   'Детектив',
   'Sci-fi',
-
 ] as const;
 const QUEST_LEVEL = ['Лёгкий', 'Средний', 'Сложный'] as const;
-
 
 const QuestType = {
   All: {
@@ -81,14 +76,12 @@ enum QuestLevel {
   Hard = 'Сложный',
 }
 
-const QuestDate={
-  Today:'сегодня',
-  Tomorrow:'завтра',
-};
+const QuestDate = {
+  Today: 'сегодня',
+  Tomorrow: 'завтра',
+} as const;
 
 const QUEST_DATE = ['сегодня', 'завтра'];
-
-
 
 const enum GeneralNavItem {
   Auth = 3,
@@ -152,5 +145,5 @@ export {
   Setting,
   BackgroundSetting,
   OrganizationContact,
-  OrganizationContactKeys
+  OrganizationContactKeys,
 };

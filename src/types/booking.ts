@@ -1,7 +1,6 @@
 import { QUEST_DATE, QuestDate } from '../const/const';
 
 type QuestDays = (typeof QUEST_DATE)[number];
-type QuestDateType = keyof typeof QuestDate;
 
 interface Slot {
   time: string;
@@ -12,9 +11,10 @@ interface DaySlots {
   [key: string]: Slot[];
 }
 
+type Coords = [number, number];
 interface Location {
   address: string;
-  coords: number[];
+  coords: Coords;
 }
 
 interface Booking {
@@ -24,7 +24,7 @@ interface Booking {
 }
 
 interface NewBooking {
-  date: QuestDateType;
+  date: string;
   time: string;
   contactPerson: string;
   phone: string;
@@ -33,4 +33,12 @@ interface NewBooking {
   placeId: string;
 }
 
-export type { Slot, DaySlots, QuestDays, QuestDateType, Booking, NewBooking };
+export type {
+  Coords,
+  Slot,
+  Location,
+  DaySlots,
+  QuestDays,
+  Booking,
+  NewBooking,
+};

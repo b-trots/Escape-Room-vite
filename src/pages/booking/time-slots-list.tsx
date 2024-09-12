@@ -12,13 +12,13 @@ function TimeSlotsList({ slots }: TimeSlotListProps): JSX.Element {
   return (
     <>
       {bothDays.map((day) => (
-        <fieldset className="booking-form__date-section">
+        <fieldset key={day[0]} className="booking-form__date-section">
           <legend className="booking-form__date-title">
             {QuestDate[toBigLetter(day[0]) as keyof typeof QuestDate]}
           </legend>
           <div className="booking-form__date-inner-wrapper">
             {day[1].map((time) => (
-              <TimeSlot dayName={day[0]} slot={time} />
+              <TimeSlot key={time.time} dayName={day[0]} slot={time} />
             ))}
           </div>
         </fieldset>

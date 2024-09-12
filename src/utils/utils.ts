@@ -1,7 +1,7 @@
 const toBigLetter = (letter: string) =>
   letter.charAt(0).toUpperCase() + letter.slice(1);
 
-  const toSmallLetter = (letter: string) =>
+const toSmallLetter = (letter: string): string =>
   letter.charAt(0).toLowerCase() + letter.slice(1);
 
 const getFilterParameters = <T, U>(currentFilter: T, filterType: U) => {
