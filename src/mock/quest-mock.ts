@@ -2,7 +2,6 @@ import { faker } from '@faker-js/faker';
 import {
   QUEST_LEVEL,
   QUEST_TYPE,
-  QuestLevel,
   QUESTS,
   Setting,
 } from '../const/const';

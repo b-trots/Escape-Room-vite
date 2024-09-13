@@ -66,6 +66,29 @@ const MapSetting = {
   Zoom: 5,
 } as const;
 
+enum SliceName {
+  Quests = 'quests',
+  // Active = 'active',
+  // Error = 'error',
+  // Favorites = 'favorites',
+  // User = 'user',
+}
+
+enum RequestStatus {
+  Idle = 'idle',
+  Loading = 'loading',
+  Success = 'success',
+  Failed = 'failed',
+}
+
+enum APIRoute {
+  Quests = '/quest',
+  // Favorite = '/favorite',
+  // Comments = '/comments',
+  // Login = '/login',
+  // Logout = '/logout',
+}
+
 export {
   Checkbox,
   ActionButton,
@@ -78,4 +101,7 @@ export {
   LoginLogoutButton,
   SocialApplication,
   MapSetting,
+  SliceName,
+  RequestStatus,
+  APIRoute,
 };

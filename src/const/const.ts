@@ -1,4 +1,3 @@
-import { QuestDateType } from '../types/common';
 import { UserDataForBooking } from './const-for-user';
 
 const QUESTS = [

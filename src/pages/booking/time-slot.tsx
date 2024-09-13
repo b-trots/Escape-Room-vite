@@ -8,8 +8,8 @@ type TimeSlotProps = {
 function TimeSlot({ dayName,slot }: TimeSlotProps) {
   const { time,isAvailable } = slot;
 
-  const timeInfo = (time: string) => {
-    const splitTime = time.split(':');
+  const timeInfo = (currentTime: string) => {
+    const splitTime = currentTime.split(':');
     return `${splitTime[0]}h${splitTime[1]}m`;
   };
 
