@@ -1,6 +1,9 @@
 import { AuthStatus } from '../const/const';
 
-type AuthType = keyof typeof AuthStatus;
+type AuthStatusType = typeof AuthStatus;
+type AuthStatusKeys = keyof typeof AuthStatus;
+
+type AuthStatusValues = (typeof AuthStatus)[AuthStatusKeys];
 
 interface User {
   email: string;
@@ -8,8 +11,14 @@ interface User {
 }
 
 type AuthData = {
-  email: string;
+  login: string;
   password: string;
 };
 
-export type { User, AuthData, AuthType };
+export type {
+  User,
+  AuthData,
+  AuthStatusKeys,
+  AuthStatusValues,
+  AuthStatusType,
+};

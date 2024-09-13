@@ -1,9 +1,24 @@
 import { RequestStatus } from '../../const/app-const';
-import { Quest } from '../quest';
+import { Booking } from '../booking';
+import { Quest, QuestPreview } from '../quest';
+import { Reservation } from '../reservation';
+import { AuthStatusValues } from '../user';
 
-type QuestsSlice = {
-  quests: Quest[];
+type QuestSlice = {
+  quests: QuestPreview[];
+  quest: Quest | null;
   requestStatus: RequestStatus;
 };
 
-export type { QuestsSlice };
+type BookingSlice = {
+  bookingInfo: Booking[];
+  reservation: Reservation[];
+  requestStatus: RequestStatus;
+};
+
+type UserSlice = {
+  authStatus: AuthStatusValues;
+  userEmail: string;
+};
+
+export type { QuestSlice, BookingSlice, UserSlice };

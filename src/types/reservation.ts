@@ -7,7 +7,7 @@ type LocationType = {
   coords: number[];
 };
 
-interface ReservationType {
+interface Reservation {
   date: DateType;
   time: string;
   contactPerson: string;
@@ -19,4 +19,4 @@ interface ReservationType {
   quest: Omit<Quest, 'description' | 'coverImg' | 'coverImgWebp'>;
 }
 
-export type { DateType, LocationType, ReservationType };
+export type { DateType, LocationType, Reservation };

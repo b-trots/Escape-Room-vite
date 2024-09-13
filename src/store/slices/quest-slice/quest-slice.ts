@@ -1,17 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RequestStatus, SliceName } from '../../../const/app-const';
-import { QuestsSlice } from '../../../types/store-types/slices-types';
-import { questsAction } from '../../api-actions/quest-actions';
+import { QuestSlice } from '../../../types/store-types/slices-types';
+import { questAction, questsAction } from '../../api-actions/quest-actions';
 
-const questsState: QuestsSlice = {
+const questState: QuestSlice = {
   quests: [],
+  quest: null,
   requestStatus: RequestStatus.Idle,
 };
 
-
-const questsSlice = createSlice({
-  name: SliceName.Quests,
-  initialState: questsState,
+const questSlice = createSlice({
+  name: SliceName.Quest,
+  initialState: questState,
   extraReducers: (builder) => {
     builder
       .addCase(questsAction.pending, (state) => {
@@ -23,14 +23,25 @@ const questsSlice = createSlice({
       .addCase(questsAction.fulfilled, (state, action) => {
         state.requestStatus = RequestStatus.Success;
         state.quests = action.payload;
+      })
+      .addCase(questAction.pending, (state) => {
+        state.requestStatus = RequestStatus.Loading;
+      })
+      .addCase(questAction.rejected, (state) => {
+        state.requestStatus = RequestStatus.Failed;
+      })
+      .addCase(questAction.fulfilled, (state, action) => {
+        state.requestStatus = RequestStatus.Success;
+        state.quest = action.payload;
       });
   },
   reducers: {},
   selectors: {
     quests: (state) => state.quests,
+    questById: (state) => state.quest,
   },
 });
 
-const questsSelectors = questsSlice.selectors;
+const questSelectors = questSlice.selectors;
 
-export { questsSelectors, questsSlice };
+export { questSelectors, questSlice };

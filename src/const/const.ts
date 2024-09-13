@@ -87,11 +87,11 @@ const enum GeneralNavItem {
   NoAuth = 2,
 }
 
-enum AuthStatus {
-  Auth = 'AUTH',
-  NoAuth = 'NO_AUTH',
-  Unknown = 'UNKNOWN',
-}
+const AuthStatus = {
+  Auth: 'AUTH',
+  NoAuth: 'NO_AUTH',
+  Unknown: 'UNKNOWN',
+} as const;
 
 enum AppRoute {
   Home = '/',

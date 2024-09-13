@@ -1,11 +1,12 @@
 import { QuestCard } from '../../components/main/quest-card/quest-card';
-import { generateQuests } from '../../mock/quest-mock';
+import { useAppSelector } from '../../hooks/store';
+import { questSelectors } from '../../store/slices/quest-slice/quest-slice';
 import { Filters } from './filters/filters';
 import { Title } from './title';
 
 function MainHome(): JSX.Element {
-  const quests = generateQuests();
-
+  const quests = useAppSelector(questSelectors.quests);
+console.log(quests);
   return (
     <main className="page-content">
       <div className="container">

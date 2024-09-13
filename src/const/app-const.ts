@@ -67,11 +67,9 @@ const MapSetting = {
 } as const;
 
 enum SliceName {
-  Quests = 'quests',
-  // Active = 'active',
-  // Error = 'error',
-  // Favorites = 'favorites',
-  // User = 'user',
+  Quest = 'quest',
+  Booking = 'booking',
+  User = 'user'
 }
 
 enum RequestStatus {
@@ -82,11 +80,11 @@ enum RequestStatus {
 }
 
 enum APIRoute {
-  Quests = '/quest',
-  // Favorite = '/favorite',
-  // Comments = '/comments',
-  // Login = '/login',
-  // Logout = '/logout',
+  Quest = '/quest',
+  Booking = '/booking',
+  Reservation = '/reservation',
+  Login = '/login',
+  Logout = '/logout'
 }
 
 export {

@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { createAPI } from '../services/api';
-import { questsSlice } from './slices/quest-slice/quest-slice';
+import { questSlice } from './slices/quest-slice/quest-slice';
+import { bookingSlice } from './slices/booking-slice/booking-slice';
 
 const api = createAPI();
 
 const store = configureStore({
   reducer: {
-    [questsSlice.name]: questsSlice.reducer,
+    [questSlice.name]: questSlice.reducer,
+    [bookingSlice.name]: bookingSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
