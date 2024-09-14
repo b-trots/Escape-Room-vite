@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+
 import { PrivacyPolicy } from '../../components/main/private-policy/privacy-policy';
 import { TitleName, UserDataForLogin, ActionButton, PrivacyPolicyClass } from '../../const/template-const';
 import { UserDataLoginType } from '../../types/common';
@@ -6,7 +6,12 @@ import { UserData } from '../booking/user-data-to-booking';
 
 function LoginForm(): JSX.Element {
   const onSubmit = (evt) => evt.preventDefault();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      email: '',
+      password: ''
+    }
+  });
 
   return (
     <form

@@ -5,7 +5,8 @@ import { toBigLetter } from '../../utils/utils';
 
 type UserDataProps = {
   field: UserDataFieldType;
-  register:UseFormRegister<FieldValues>;
+  // register:UseFormRegister<FieldValues>;
+  register: any;
 
 };
 
@@ -23,13 +24,13 @@ function UserData({ field,register }: UserDataProps): JSX.Element {
         {label}
       </label>
       <input
+        {...register(`user${toBigLetter(id)}`, { required: true })}
         type={type}
         id={id}
         name={name}
         placeholder={placeholder}
         pattern={pattern}
         required
-        {...register(`user${toBigLetter(id)}`, { required: true })}
       />
     </div>
   );
