@@ -1,4 +1,5 @@
 
+import { useForm } from 'react-hook-form';
 import { PrivacyPolicy } from '../../components/main/private-policy/privacy-policy';
 import { TitleName, UserDataForLogin, ActionButton, PrivacyPolicyClass } from '../../const/template-const';
 import { UserDataLoginType } from '../../types/common';
