@@ -1,11 +1,9 @@
 import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
 import { BackgroundDecoration } from '../../components/main/background-decoration/background-decoration';
-import { BookButton } from './book-button';
 import { FirstComponent } from '../../components/main/first-component/first-component';
-import { generateQuests } from '../../mock/quest-mock';
-import { SelectedInfo } from '../../const/app-const';
-const quest = generateQuests()[0];
+import { SelectedInfo } from '../../const/template-const';
+import { BookButton } from './book-button';
 
 function Quest(): JSX.Element {
   const {title, type, level, description, peopleMinMax } = quest;

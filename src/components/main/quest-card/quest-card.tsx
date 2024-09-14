@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Quest } from '../../../types/quest';
-import { ReservationType } from '../../../types/reservation';
 import { correctTime } from '../../../utils/time-utils';
 import { CancelButton } from './cancel-button';
-import { AppRoute } from '../../../const/const';
+import { AppRoute } from '../../../const/app-const';
 
 type QuestCardProps = {
   quest: Pick<

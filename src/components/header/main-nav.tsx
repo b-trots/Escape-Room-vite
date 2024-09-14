@@ -1,14 +1,12 @@
 import { Link } from 'react-router-dom';
-import {
-  AppRoute,
-  AuthStatus,
-  GeneralNav,
-  GeneralNavItem,
-  Setting,
-} from '../../const/const';
+import { AuthStatus, GeneralNavItem, AppRoute } from '../../const/app-const';
+import { GeneralNav } from '../../const/template-const';
+import { useAppSelector } from '../../hooks/store';
+import { userSelectors } from '../../store/slices/user-slice/user-slice';
+
 
 function MainNav(): JSX.Element {
-  const authStatus = Setting.authStatus;
+  const authStatus = useAppSelector(userSelectors.authStatus);
   const getGeneralNavElementsCount = () =>
     authStatus === AuthStatus.Auth
       ? GeneralNavItem.Auth

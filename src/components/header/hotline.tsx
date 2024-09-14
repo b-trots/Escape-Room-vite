@@ -1,4 +1,4 @@
-import { Contact } from '../../const/app-const';
+import { Contact } from '../../const/template-const';
 
 
 function Hotline(): JSX.Element {

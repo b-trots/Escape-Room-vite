@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { AppRoute } from '../../const/const';
-import { ActionButton } from '../../const/app-const';
+import { AppRoute } from '../../const/app-const';
+import { ActionButton } from '../../const/template-const';
 
 function BookButton(): JSX.Element {
   return (

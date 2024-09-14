@@ -1,19 +1,12 @@
+import { useState } from 'react';
 import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
 import { BackgroundDecoration } from '../../components/main/background-decoration/background-decoration';
 import { FirstComponent } from '../../components/main/first-component/first-component';
-import {
-  TitleName
-} from '../../const/app-const';
-import { generateBooking } from '../../mock/booking-mock';
-import { generateQuests } from '../../mock/quest-mock';
-import { Map } from '../../components/map/map';
-import { useState } from 'react';
+import { TitleName } from '../../const/template-const';
 import { BookingForm } from './booking-form';
 
 function Booking(): JSX.Element {
-  const quest = generateQuests()[0];
-  const booking = generateBooking();
   const currentBooking = booking[0];
   const { title } = quest;
   const { slots } = currentBooking;

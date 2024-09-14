@@ -1,4 +1,4 @@
-import { BackgroundSetting } from '../../../const/const';
+import { BackgroundSetting } from '../../../const/app-const';
 
 type BackgroundDecorationProps = {
   isBlur?: boolean;

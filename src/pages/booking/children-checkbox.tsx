@@ -1,4 +1,4 @@
-import { Checkbox } from '../../const/app-const';
+import { Checkbox } from '../../const/template-const';
 
 function ChildrenCheckbox(): JSX.Element {
   return (

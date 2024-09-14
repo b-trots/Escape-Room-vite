@@ -1,6 +1,6 @@
-import { Navigate, Outlet } from 'react-router-dom';
-import { AppRoute, AuthStatus, Setting } from '../../const/const';
+import { Outlet, Navigate } from 'react-router-dom';
 import { Loading } from '../../components/main/loading/loading';
+import { AppRoute, AuthStatus } from '../../const/app-const';
 
 const getRoute = (status: AuthStatus, redirection: AppRoute) =>
   function AccessRoute() {

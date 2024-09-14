@@ -1,4 +1,5 @@
-import { QUEST_LEVEL, QUEST_TYPE } from '../const/const';
+import { QUEST_LEVEL, QUEST_TYPE } from '../const/template-const';
+
 
 type QuestLevel = (typeof QUEST_LEVEL)[number];
 type QuestType = (typeof QUEST_TYPE)[number];

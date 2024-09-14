@@ -1,4 +1,5 @@
-import { QUEST_DATE } from '../const/const';
+import { QUEST_DATE } from '../const/app-const';
+
 
 type QuestDays = (typeof QUEST_DATE)[number];
 

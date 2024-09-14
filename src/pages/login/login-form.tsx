@@ -1,12 +1,7 @@
-import {
-  ActionButton,
-  PrivacyPolicyClass,
-  TitleName,
-} from '../../const/app-const';
-import { UserDataForLogin } from '../../const/const-for-user';
+import { PrivacyPolicy } from '../../components/main/private-policy/privacy-policy';
+import { TitleName, UserDataForLogin, ActionButton, PrivacyPolicyClass } from '../../const/template-const';
 import { UserDataLoginType } from '../../types/common';
 import { UserData } from '../booking/user-data-to-booking';
-import { PrivacyPolicy } from '../../components/main/private-policy/privacy-policy';
 
 function LoginForm(): JSX.Element {
   return (

@@ -1,58 +1,72 @@
-enum Checkbox {
-  Children = 'Со мной будут дети',
+const AppSetting = {
+  QuestsCount: 11,
+  ReservationsCount: 3,
+};
+
+const BackgroundSetting = {
+  Original: 768,
+  Blur: 1959,
+} as const;
+
+// const QUESTS = [
+//   'Склеп',
+//   'Маньяк',
+//   'Ритуал',
+//   'История призраков',
+//   'Тайны старого ососбняка',
+//   'Хижина в лесу',
+//   'Фатальный эксперимент',
+//   'Метро 2033',
+//   'Старый чердак',
+//   'Последний рубеж',
+//   'Марс-2056',
+// ];
+
+const enum GeneralNavItem {
+  Auth = 3,
+  NoAuth = 2,
 }
 
-enum Contact {
-  Hotline = '8 (000) 111-11-11',
-}
-
-enum ActionButton {
-  Booking = 'Забронировать',
-  Login = 'Войти',
-}
-
-enum PrivacyPolicyClass {
-  Login = 'login-form__checkbox',
-  Booking = 'booking-form__checkbox booking-form__checkbox--agreement',
-}
-
-enum TitleName {
-  Home = 'Выберите тематику',
-  Login = 'Вход',
-  Booking = 'Бронирование квеста',
-  ContactInfo = 'Контакты',
-  MyQuests = 'Мои бронирования',
-}
-
-enum LoginLogoutButton {
-  Login = 'Вход',
-  Logout = 'Выйти',
-}
-
-enum SubTitleName {
-  Home = 'квесты в Санкт-Петербурге',
-}
-
-enum LegendName {
-  SelectDate = 'Выбор даты и времени',
-  ContactInfo = 'Контактная информация',
-}
-
-enum SelectedInfo {
-  Address = 'Вы выбрали: ',
-  Genre = 'Жанр:',
-}
-
-const SocialApplication = {
-  Skype: {
-    id: 'skype',
-    label: 'Skype',
+const QuestType = {
+  All: {
+    label: 'Все квесты',
+    icon: 'all-quests',
+    iconSize: [26, 30],
   },
-  Vk: {
-    id: 'vk',
-    label: 'ВКонтакте',
+  Adventure: {
+    label: 'Приключения',
+    icon: 'adventure',
+    iconSize: [36, 30],
+  },
+  Horror: {
+    label: 'Ужасы',
+    icon: 'horror',
+    iconSize: [30, 30],
+  },
+  Mystic: {
+    label: 'Мистика',
+    icon: 'mystic',
+    iconSize: [30, 30],
+  },
+  Detective: {
+    label: 'Детектив',
+    icon: 'detective',
+    iconSize: [40, 30],
+  },
+  SciFi: {
+    label: 'Sci-fi',
+    icon: 'sci-fi',
+    iconSize: [28, 30],
   },
 } as const;
+
+// const QuestComplexity = {
+//   All: {
+//     label: 'Все квесты',
+//     icon: 'all-quests',
+//     iconSize: [26, 30],
+//   },
+// } as const;
 
 const MapSetting = {
   MapUrl:
@@ -69,7 +83,7 @@ const MapSetting = {
 enum SliceName {
   Quest = 'quest',
   Booking = 'booking',
-  User = 'user'
+  User = 'user',
 }
 
 enum RequestStatus {
@@ -84,22 +98,33 @@ enum APIRoute {
   Booking = '/booking',
   Reservation = '/reservation',
   Login = '/login',
-  Logout = '/logout'
+  Logout = '/logout',
+}
+
+const AuthStatus = {
+  Auth: 'AUTH',
+  NoAuth: 'NO_AUTH',
+  Unknown: 'UNKNOWN',
+} as const;
+
+enum AppRoute {
+  Home = '/',
+  Booking = '/booking',
+  Contacts = '/contacts',
+  Login = '/login',
+  MyQuests = '/my-quests',
+  Quest = '/quest/:id',
 }
 
 export {
-  Checkbox,
-  ActionButton,
-  PrivacyPolicyClass,
-  Contact,
-  TitleName,
-  SubTitleName,
-  LegendName,
-  SelectedInfo,
-  LoginLogoutButton,
-  SocialApplication,
-  MapSetting,
+  AppSetting,
+  BackgroundSetting,
+  QuestType,
+  GeneralNavItem,
   SliceName,
   RequestStatus,
   APIRoute,
+  AuthStatus,
+  AppRoute,
+  MapSetting,
 };

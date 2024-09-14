@@ -1,13 +1,7 @@
-import { SocialApplication } from '../const/app-const';
-import {
-  FILTER_BY_COMPLEXITY,
-  FILTER_BY_TOPIC,
-  OrganizationContact,
-} from '../const/const';
-import { UserDataForBooking, UserDataForLogin } from '../const/const-for-user';
+import { OrganizationContact, UserDataForLogin, UserDataForBooking, SocialApplication, FILTER_BY_TOPIC } from '../const/template-const';
 
-type FilterTopicType = (typeof FILTER_BY_TOPIC)[number];
-type FilterComplexityType = (typeof FILTER_BY_COMPLEXITY)[number];
+type FilterTopicKeysType = (typeof FILTER_BY_TOPIC)[number];
+
 type OrganizationContactType = keyof typeof OrganizationContact;
 
 type UserDataLoginType = keyof typeof UserDataForLogin;
@@ -17,11 +11,10 @@ type UserDataFieldType = UserDataLoginType | UserDataBookingType;
 type SocialApplicationType = keyof typeof SocialApplication;
 
 export type {
-  FilterTopicType,
-  FilterComplexityType,
   OrganizationContactType,
   UserDataLoginType,
   UserDataBookingType,
   UserDataFieldType,
   SocialApplicationType,
+  FilterTopicKeysType,
 };

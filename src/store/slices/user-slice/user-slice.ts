@@ -1,9 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AuthStatus } from '../../../const/const';
+
 import { UserSlice } from '../../../types/store-types/slices-types';
-import { SliceName } from '../../../const/app-const';
+import { AuthStatus, SliceName } from '../../../const/app-const';
 import { checkAuthAction, loginAction, logoutAction } from '../../api-actions/user-actions';
 import { AuthStatusValues } from '../../../types/user';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const userState: UserSlice = {
   authStatus: AuthStatus.Unknown,

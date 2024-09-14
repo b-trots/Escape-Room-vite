@@ -1,4 +1,4 @@
-import { SelectedInfo } from '../../const/app-const';
+import { SelectedInfo } from '../../const/template-const';
 
 type SelectedAddressProps = {
   address: string;

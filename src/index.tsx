@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from './services/app/app';
-import { dispatch, store } from './store/store';
+import { store } from './store/store';
 import { Provider } from 'react-redux';
-import { questsAction } from './store/api-actions/quest-actions';
+import { checkToken } from './store/utils';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-dispatch(questsAction());
+
+checkToken();
 
 root.render(
   <React.StrictMode>

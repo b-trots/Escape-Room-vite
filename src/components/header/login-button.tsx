@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
-import { AppRoute, AuthStatus, Setting } from '../../const/const';
-import { LoginLogoutButton } from '../../const/app-const';
+import { AuthStatus, AppRoute } from '../../const/app-const';
+import { LoginLogoutButton } from '../../const/template-const';
+import { useAppSelector } from '../../hooks/store';
+import { userSelectors } from '../../store/slices/user-slice/user-slice';
 
 function LoginButton(): JSX.Element {
-  const authStatus = Setting.authStatus;
+  const authStatus = useAppSelector(userSelectors.authStatus);
   const isAuth = authStatus === AuthStatus.Auth;
 
   return isAuth ? (

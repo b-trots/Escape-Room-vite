@@ -3,11 +3,11 @@ import { Error } from '../../components/main/error/error';
 import { Home } from '../../pages/home/home';
 import { PrivateRoute, PublicRoute } from './private-route';
 import { Login } from '../../pages/login/login';
-import { AppRoute } from '../../const/const';
 import { MyQuests } from '../../pages/my-quests/my-quests';
 import { Quest } from '../../pages/quest/quest';
 import { Booking } from '../../pages/booking/booking';
 import { Contacts } from '../../pages/contacts/contacts';
+import { AppRoute } from '../../const/app-const';
 
 function Router() {
   const router = createBrowserRouter([

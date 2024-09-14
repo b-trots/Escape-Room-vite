@@ -1,4 +1,4 @@
-import { QuestDate } from '../../const/const';
+import { QuestDate } from '../../const/template-const';
 import { DaySlots } from '../../types/booking';
 import { toBigLetter } from '../../utils/utils';
 import { TimeSlot } from './time-slot';

@@ -1,16 +1,17 @@
-import { QuestType } from '../../../../const/const';
-import { FilterTopicType } from '../../../../types/common';
+import { QuestType } from '../../../../const/app-const';
+import { FilterTopicKeysType } from '../../../../types/common';
 import { getFilterParameters } from '../../../../utils/utils';
 
 type TopicFilterItemParams = {
-  filter: FilterTopicType;
+  filter: FilterTopicKeysType;
 };
 function TopicFilterItem({ filter }: TopicFilterItemParams): JSX.Element {
   const { label, icon, iconSize } = getFilterParameters(filter, QuestType);
 
   return (
-    <li key={filter} className="filter__item">
-      <input type="radio" name="type" id={filter} />
+    <li key={filter} className="filter__item" >
+      <input type="radio" name="type" id={filter} checked/>
+
       <label className="filter__label" htmlFor={filter}>
         <svg
           className="filter__icon"

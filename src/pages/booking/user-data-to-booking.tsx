@@ -1,7 +1,4 @@
-import {
-  UserDataForBooking,
-  UserDataForLogin,
-} from '../../const/const-for-user';
+import { UserDataForBooking, UserDataForLogin } from '../../const/template-const';
 import { UserDataFieldType } from '../../types/common';
 
 type UserDataProps = {

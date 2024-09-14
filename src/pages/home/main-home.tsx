@@ -6,7 +6,6 @@ import { Title } from './title';
 
 function MainHome(): JSX.Element {
   const quests = useAppSelector(questSelectors.quests);
-console.log(quests);
   return (
     <main className="page-content">
       <div className="container">

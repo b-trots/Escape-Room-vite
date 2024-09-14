@@ -1,16 +1,3 @@
-import React from 'react';
-import { Footer } from '../../components/footer/footer';
-import { Header } from '../../components/header/header';
-import { BackgroundDecoration } from '../../components/main/background-decoration/background-decoration';
-import { FirstComponent } from '../../components/main/first-component/first-component';
-import {
-  OrganizationContact,
-  OrganizationContactKeys,
-} from '../../const/const';
-import { OrganizationContactType } from '../../types/common';
-import { SubTitleName, TitleName } from '../../const/app-const';
-import { generateBooking } from '../../mock/booking-mock';
-import { Map } from '../../components/map/map';
 
 function Contacts(): JSX.Element {
   const booking = generateBooking()[0];

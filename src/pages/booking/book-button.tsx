@@ -1,4 +1,4 @@
-import { ActionButton } from '../../const/app-const';
+import { ActionButton } from '../../const/template-const';
 
 function BookButton(): JSX.Element {
   return (

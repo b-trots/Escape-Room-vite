@@ -1,6 +1,5 @@
 import { PrivacyPolicy } from '../../components/main/private-policy/privacy-policy';
-import { LegendName, PrivacyPolicyClass } from '../../const/app-const';
-import { UserDataForBooking } from '../../const/const-for-user';
+import { LegendName, UserDataForBooking, PrivacyPolicyClass } from '../../const/template-const';
 import { DaySlots } from '../../types/booking';
 import { UserDataBookingType } from '../../types/common';
 import { BookButton } from './book-button';

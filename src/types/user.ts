@@ -1,4 +1,6 @@
-import { AuthStatus } from '../const/const';
+import { AuthStatus } from '../const/app-const';
+import { UserDataForBooking } from '../const/template-const';
+
 
 type AuthStatusType = typeof AuthStatus;
 type AuthStatusKeys = keyof typeof AuthStatus;
@@ -15,10 +17,13 @@ type AuthData = {
   password: string;
 };
 
+type UserDataBooking = keyof typeof UserDataForBooking;
+
 export type {
   User,
   AuthData,
   AuthStatusKeys,
   AuthStatusValues,
   AuthStatusType,
+  UserDataBooking,
 };

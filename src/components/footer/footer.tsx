@@ -1,4 +1,4 @@
-import { SocialApplication } from '../../const/app-const';
+import { SocialApplication } from '../../const/template-const';
 import { SocialApplicationType } from '../../types/common';
 import { SocialsItem } from './socials-item';
 
