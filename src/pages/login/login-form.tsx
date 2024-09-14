@@ -1,19 +1,26 @@
-
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { PrivacyPolicy } from '../../components/main/private-policy/privacy-policy';
-import { TitleName, UserDataForLogin, ActionButton, PrivacyPolicyClass } from '../../const/template-const';
+import {
+  TitleName,
+  UserDataForLogin,
+  ActionButton,
+  PrivacyPolicyClass,
+} from '../../const/template-const';
 import { UserDataLoginType } from '../../types/common';
 import { UserData } from '../booking/user-data-to-booking';
 
-function LoginForm(): JSX.Element {
-  const onSubmit = (evt) => evt.preventDefault();
-  const { register, handleSubmit } = useForm({
-    defaultValues: {
-      email: '',
-      password: ''
-    }
-  });
+export type Inputs = {
+  [key: string]: string;
+};
 
+function LoginForm(): JSX.Element {
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
   return (
     <form
       className="login-form"
@@ -27,7 +34,12 @@ function LoginForm(): JSX.Element {
         </h1>
         <div className="login-form__inputs">
           {Object.keys(UserDataForLogin).map((field) => (
-            <UserData key={field} register={register} field={field as UserDataLoginType} />
+            <UserData
+              key={field}
+              errors={errors}
+              register={register}
+              field={field as UserDataLoginType}
+            />
           ))}
         </div>
 

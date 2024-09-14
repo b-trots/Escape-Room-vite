@@ -47,7 +47,8 @@ const UserDataForLogin = {
     id: 'email',
     name: 'email',
     placeholder: 'Адрес электронной почты',
-    // pattern: '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$',
+    pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+.+.[a-zA-Z]{2,4}$',
+    error: 'Введите e-mail в формате: example@example.com'
   },
   password: {
     label: 'Пароль',
@@ -55,7 +56,8 @@ const UserDataForLogin = {
     id: 'password',
     name: 'password',
     placeholder: 'Пароль',
-    // pattern: '/^(?=.*[0-9])(?=.*[a-zA-Z])(?!.* ).{3,15}$/',
+    pattern: '^(?=.*[0-9])(?=.*[a-zA-Z])(?!.* ).{3,15}$',
+    error: 'От 3 до 15 символов, минимум 1 буква, минимум 1 цифра'
   },
 };
 
