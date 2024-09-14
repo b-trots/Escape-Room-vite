@@ -8,19 +8,42 @@ import {
 } from '../../const/template-const';
 import { UserDataLoginType } from '../../types/common';
 import { UserData } from '../booking/user-data-to-booking';
+import { useNavigate } from 'react-router-dom';
+import { AppRoute } from '../../const/app-const';
+import { FormEvent } from 'react';
+import { loginAction } from '../../store/api-actions/user-actions';
+import { store } from '../../store/store';
 
 export type Inputs = {
   [key: string]: string;
 };
 
 function LoginForm(): JSX.Element {
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const navigate = useNavigate();
 
   const {
     register,
+    watch,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
+
+  const onSubmit= () => {
+    store
+      .dispatch(
+        loginAction({
+          login: watch().email,
+          password: watch().password,
+        })
+      )
+      .unwrap(),
+      {
+        loading: 'Logging in...',
+        error: 'Login failed',
+        success: 'Logged in successfully',
+      };
+  };
+
   return (
     <form
       className="login-form"
@@ -46,6 +69,7 @@ function LoginForm(): JSX.Element {
         <button
           className="btn btn--accent btn--general login-form__submit"
           type="submit"
+          onSubmit={() => navigate(AppRoute.Home)}
         >
           {ActionButton.Login}
         </button>
