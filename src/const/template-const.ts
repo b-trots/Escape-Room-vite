@@ -20,7 +20,7 @@ const UserDataForBooking = {
     id: 'name',
     name: 'name',
     placeholder: 'Имя',
-    pattern: `[А-Яа-яЁёA-Za-z'- ]{1,}`,
+    // pattern: `[А-Яа-яЁёA-Za-z'- ]{1,}`,
   },
   Tel: {
     label: 'Контактный телефон',
@@ -28,7 +28,7 @@ const UserDataForBooking = {
     id: 'tel',
     name: 'tel',
     placeholder: 'Телефон',
-    pattern: `[0-9]{10,}`,
+    // pattern: `[0-9]{10,}`,
   },
   Person: {
     label: 'Количество участников',
@@ -36,7 +36,7 @@ const UserDataForBooking = {
     id: 'person',
     name: 'person',
     placeholder: 'Количество участников',
-    pattern: `[0-9]{10,}`,
+    // pattern: `[0-9]{10,}`,
   },
 };
 
@@ -47,7 +47,7 @@ const UserDataForLogin = {
     id: 'email',
     name: 'email',
     placeholder: 'Адрес электронной почты',
-    pattern: '^S+@S+.S+$',
+    // pattern: '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$',
   },
   password: {
     label: 'Пароль',
@@ -55,7 +55,7 @@ const UserDataForLogin = {
     id: 'password',
     name: 'password',
     placeholder: 'Пароль',
-    pattern: '(?=.*d)(?=.*[a-zA-Z]).{2,}',
+    // pattern: '/^(?=.*[0-9])(?=.*[a-zA-Z])(?!.* ).{3,15}$/',
   },
 };
 

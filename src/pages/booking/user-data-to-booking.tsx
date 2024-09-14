@@ -1,11 +1,15 @@
+import { FieldValues, UseFormRegister } from 'react-hook-form';
 import { UserDataForBooking, UserDataForLogin } from '../../const/template-const';
 import { UserDataFieldType } from '../../types/common';
+import { toBigLetter } from '../../utils/utils';
 
 type UserDataProps = {
   field: UserDataFieldType;
+  register:UseFormRegister<FieldValues>;
+
 };
 
-function UserData({ field }: UserDataProps): JSX.Element {
+function UserData({ field,register }: UserDataProps): JSX.Element {
   const userData = Object.keys(UserDataForBooking).includes(field)
     ? UserDataForBooking
     : UserDataForLogin;
@@ -25,6 +29,7 @@ function UserData({ field }: UserDataProps): JSX.Element {
         placeholder={placeholder}
         pattern={pattern}
         required
+        {...register(`user${toBigLetter(id)}`, { required: true })}
       />
     </div>
   );
