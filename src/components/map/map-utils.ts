@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { Icon, Map as LeafletMap, Marker, layerGroup } from 'leaflet';
-import { Booking, Coords } from '../../types/booking';
+import { BookingType, Coords } from '../../types/booking';
 import { MapSetting } from '../../const/app-const';
+import { BemBlock } from '../../const/template-const';
 
 export type Location = {
   lat: number;
@@ -20,7 +21,6 @@ const currentCustomIcon = new Icon({
   iconAnchor: [15, 40],
 });
 
-// const getLocation = (offers: FullOffer[]) => offers[0].city.location;
 
 const adaptLocation = ([lat, lng]: Coords) => ({
   lat,
@@ -40,34 +40,46 @@ const useUpdateLocation = (map: LeafletMap | null, location: Location) => {
 
 const useUpdateMarkers = (
   map: LeafletMap | null,
-  booking: Booking[],
-  currentBooking: Booking,
-  onClick: (bookingId: string) => void
+  booking?: BookingType[],
+  activeBooking?: BookingType,
+  onClick?: (place: BookingType) => void,
+  bemBlock?: string,
+  coords?: Coords
 ) => {
-  // const activeOfferId = useAppSelector(activeSelectors.activeOfferId);
+  const isBooking = bemBlock === BemBlock.Map.Booking;
+
 
   useEffect(() => {
     if (map) {
       const markerLayer = layerGroup().addTo(map);
-      booking.forEach((item) => {
-        const marker = new Marker({
-          lat: item.location.coords[0],
-          lng: item.location.coords[1],
-        }).on('click', () => onClick(item.id));
-
-        marker
-          .setIcon(
-            currentBooking.id !== undefined && item.id === currentBooking.id
-              ? currentCustomIcon
-              : defaultCustomIcon
-          )
+      if (!isBooking) {
+        new Marker({
+          lat: coords![0],
+          lng: coords![1],
+        })
+          .setIcon(currentCustomIcon)
           .addTo(markerLayer);
-      });
-      return () => {
-        map.removeLayer(markerLayer);
-      };
+      } else {
+        booking!.forEach((place) => {
+          const marker = new Marker({
+            lat: place.location.coords[0],
+            lng: place.location.coords[1],
+          }).on('click', () => onClick!(place));
+console.log(place.id, activeBooking!.id);
+          marker
+            .setIcon(
+              activeBooking!.id !== undefined && place.id === activeBooking!.id
+                ? currentCustomIcon
+                : defaultCustomIcon
+            )
+            .addTo(markerLayer);
+        });
+        return () => {
+          map.removeLayer(markerLayer);
+        };
+      }
     }
-  }, [map, booking]);
+  }, [map, booking,activeBooking]);
 };
 
 export { adaptLocation, useUpdateLocation, useUpdateMarkers };

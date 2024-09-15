@@ -1,6 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { questSelectors } from './quest-slice';
-import { QuestPreview } from '../../../types/quest';
 
 
 const questById = createSelector(

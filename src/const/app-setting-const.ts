@@ -1,3 +1,13 @@
-const MAP_ZOOM = 13;
+const MAP_ZOOM = 5;
 
-export { MAP_ZOOM };
+const interactionOptions = {
+  zoomControl: false,
+  doubleClickZoom: false,
+  closePopupOnClick: false,
+  dragging: false,
+  trackResize: false,
+  touchZoom: false,
+  scrollWheelZoom: false,
+};
+
+export { MAP_ZOOM, interactionOptions };

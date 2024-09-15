@@ -1,8 +1,3 @@
-import { QUEST_DATE } from '../const/app-const';
-
-
-type QuestDays = (typeof QUEST_DATE)[number];
-
 interface Slot {
   time: string;
   isAvailable: boolean;
@@ -18,7 +13,7 @@ interface Location {
   coords: Coords;
 }
 
-interface Booking {
+interface BookingType {
   id: string;
   location: Location;
   slots: DaySlots;
@@ -34,12 +29,4 @@ interface NewBooking {
   placeId: string;
 }
 
-export type {
-  Coords,
-  Slot,
-  Location,
-  DaySlots,
-  QuestDays,
-  Booking,
-  NewBooking,
-};
+export type { Coords, Slot, Location, DaySlots, BookingType, NewBooking };

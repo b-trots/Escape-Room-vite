@@ -1,7 +1,7 @@
-import { QuestDays, Slot } from '../../types/booking';
+import { Slot } from '../../types/booking';
 
 type TimeSlotProps = {
-  dayName: QuestDays;
+  dayName: string;
   slot:Slot;
 };
 

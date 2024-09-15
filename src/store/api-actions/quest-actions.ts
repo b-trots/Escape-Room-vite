@@ -3,7 +3,7 @@ import { AxiosInstance } from 'axios';
 import { APIRoute } from '../../const/app-const';
 import { Quest, QuestPreview } from '../../types/quest';
 import { AppDispatch, RootState } from '../../types/store-types/store-type';
-
+import { setActiveQuestId } from '../slices/quest-slice/quest-slice';
 
 const appCreateAsyncThunk = createAsyncThunk.withTypes<{
   dispatch: AppDispatch;
@@ -26,9 +26,10 @@ const questAction = appCreateAsyncThunk<Quest, string>(
     const { data: quest } = await api.get<Quest>(
       `${APIRoute.Quest}/${questId}`
     );
+    setActiveQuestId(quest.id);
+
     return quest;
   }
 );
-
 
 export { questsAction, questAction, appCreateAsyncThunk };

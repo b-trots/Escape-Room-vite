@@ -2,16 +2,23 @@ import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { Map, TileLayer } from 'leaflet';
 import type { Location } from './map-utils';
 import { MapSetting } from '../../const/app-const';
+import { interactionOptions } from '../../const/app-setting-const';
+import { BemBlock } from '../../const/template-const';
 
 type UseMapProps = {
   mapRef: MutableRefObject<HTMLElement | null>;
   currentLocation: Location & { zoom: number };
+  bemBlock: string;
 };
 
-function useMap({mapRef, currentLocation}: UseMapProps): Map | null {
+function useMap({
+  mapRef,
+  currentLocation,
+  bemBlock,
+}: UseMapProps): Map | null {
+  const options = bemBlock===BemBlock.Map.Contacts ? interactionOptions : {};
   const [map, setMap] = useState<Map | null>(null);
   const isRenderedRef = useRef<boolean>(false);
-
   useEffect(() => {
     if (mapRef.current !== null && !isRenderedRef.current) {
       const instance = new Map(mapRef.current, {
@@ -20,6 +27,7 @@ function useMap({mapRef, currentLocation}: UseMapProps): Map | null {
           lng: currentLocation.lng,
         },
         zoom: currentLocation.zoom,
+        ...options,
       });
 
       const layer = new TileLayer(MapSetting.MapUrl, {

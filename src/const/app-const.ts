@@ -74,10 +74,10 @@ const MapSetting = {
   MapCopyright:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
   Markers: {
-    DefaultMarker: '../public/img/svg/pin-default.svg',
-    ActiveMarker: '../public/img/svg/pin-active.svg',
+    DefaultMarker: '../../public/img/svg/pin-default.svg',
+    ActiveMarker: '../../public/img/svg/pin-active.svg',
   },
-  Zoom: 5,
+  Zoom: 15.4,
 } as const;
 
 enum SliceName {
@@ -109,7 +109,7 @@ const AuthStatus = {
 
 enum AppRoute {
   Home = '/',
-  Booking = '/booking',
+  Booking = '/quest/:id/booking',
   Contacts = '/contacts',
   Login = '/login',
   MyQuests = '/my-quests',

@@ -1,4 +1,4 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { PrivacyPolicy } from '../../components/main/private-policy/privacy-policy';
 import {
   TitleName,
@@ -10,7 +10,6 @@ import { UserDataLoginType } from '../../types/common';
 import { UserData } from '../booking/user-data-to-booking';
 import { useNavigate } from 'react-router-dom';
 import { AppRoute } from '../../const/app-const';
-import { FormEvent } from 'react';
 import { loginAction } from '../../store/api-actions/user-actions';
 import { store } from '../../store/store';
 

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Quest, QuestPreview } from '../../../types/quest';
+import { QuestPreview } from '../../../types/quest';
 import { correctTime } from '../../../utils/time-utils';
 import { CancelButton } from './cancel-button';
 import { AppRoute } from '../../../const/app-const';
@@ -10,6 +10,7 @@ type QuestCardProps = {
   quest: QuestPreview;
   reservation?: Pick<
     ReservationType,
+
     'date' | 'time' | 'location' | 'peopleCount'
   >;
   onClick: (quest:QuestPreview) => void;

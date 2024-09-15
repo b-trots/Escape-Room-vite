@@ -10,7 +10,6 @@ const root = ReactDOM.createRoot(
 );
 
 checkToken();
-
 root.render(
   <React.StrictMode>
     <Provider store={store}>

@@ -1,5 +1,5 @@
 import { RequestStatus } from '../../const/app-const';
-import { Booking } from '../booking';
+import { BookingType } from '../booking';
 import { Quest, QuestPreview } from '../quest';
 import { Reservation } from '../reservation';
 import { AuthStatusValues } from '../user';
@@ -13,7 +13,7 @@ type QuestSlice = {
 };
 
 type BookingSlice = {
-  bookingInfo: Booking[];
+  bookingInfo: BookingType[];
   reservation: Reservation[];
   requestStatus: RequestStatus;
 };

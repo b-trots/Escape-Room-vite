@@ -6,39 +6,40 @@ import {
   useUpdateMarkers,
 } from './map-utils';
 import { useMap } from './use-map';
-import { SelectedAddress } from '../../pages/booking/selected-address';
-import { Booking } from '../../types/booking';
+import { BookingType, Coords } from '../../types/booking';
+import { useAppSelector } from '../../hooks/store';
+import { bookingSelectors } from '../../store/slices/booking-slice/booking-slice';
+import { BemBlock } from '../../const/template-const';
 
 export type MapProps = {
   bemBlock: string;
-  booking:Booking[];
-  currentBooking: Booking;
-  onClick: (bookingId: string) => void;
+  activeBooking?: BookingType;
+  onClick?: (place:BookingType) => void;
 };
 
-function Map({ bemBlock, booking, currentBooking, onClick }: MapProps) {
-  const {location} = currentBooking;
-  const { address, coords } = location;
-  const isBooking = () => bemBlock === 'booking';
-
-  // const location = (activeOffer ? activeOffer : offers[offers.length / 2])
-  //   .location;
+function Map({ bemBlock, activeBooking, onClick }: MapProps) {
+  console.log(activeBooking);
+  const isBooking = bemBlock === BemBlock.Map.Booking;
+  const booking = useAppSelector(bookingSelectors.bookingInfo);
+  // let coords = OrganizationContact.Coords;
+  // let address = '';
+  // if (isBooking){
+  const coords = activeBooking?.location.coords as Coords;
+  const address = activeBooking?.location.address as string;
+  // }
   const currentLocation = adaptLocation(coords);
   const mapRef = useRef(null);
-  const map = useMap({ mapRef, currentLocation });
+  const map = useMap({ mapRef, currentLocation, bemBlock });
 
   useUpdateLocation(map, currentLocation);
-
-  if (isBooking()) {
-  useUpdateMarkers(map, booking, currentBooking, onClick);
-  }
+  useUpdateMarkers(map, booking, activeBooking, onClick, bemBlock, coords);
 
   return (
     <div className={`${bemBlock}map`}>
       <div className="map">
         <div className="map__container" ref={mapRef} />
       </div>
-      {isBooking() && <SelectedAddress address={address} />}
+      {/* {isBooking && <SelectedAddress address={address} />} */}
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import { BackgroundDecoration } from '../../components/main/background-decoration/background-decoration';
-import { QuestCard } from '../../components/main/quest-card/quest-card';
 import { TitleName } from '../../const/template-const';
 
 function MainMyQuests(): JSX.Element {

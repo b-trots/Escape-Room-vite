@@ -1,3 +1,5 @@
+import { Coords } from '../types/booking';
+
 const GeneralNav = {
   Home: 'Квесты',
   Contacts: 'Контакты',
@@ -9,8 +11,8 @@ const OrganizationContact = {
   OpeningHours: ['Режим работы', 'Ежедневно, с 10:00 до 22:00'],
   Phone: ['Телефон', '8 (000) 111-11-11'],
   Email: ['E–mail', 'info@escape-room.ru'],
+  Coords: [59.970348, 30.316003] as Coords,
 };
-const ORGANIZATION_ADDRESS = [59.970348, 30.316003]
 
 const OrganizationContactKeys = Object.keys(OrganizationContact);
 
@@ -49,7 +51,7 @@ const UserDataForLogin = {
     name: 'email',
     placeholder: 'Адрес электронной почты',
     pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+.+.[a-zA-Z]{2,4}$',
-    error: 'Введите e-mail в формате: example@example.com'
+    error: 'Введите e-mail в формате: example@example.com',
   },
   password: {
     label: 'Пароль',
@@ -58,7 +60,8 @@ const UserDataForLogin = {
     name: 'password',
     placeholder: 'Пароль',
     pattern: '^(?=.*[0-9])(?=.*[a-zA-Z])(?!.* ).{3,15}$',
-    error: 'От 3 до 15 символов, минимум 1 буква, минимум 1 цифра'
+    error: 'От 3 до 15 символов, минимум 1 буква, минимум 1 цифра',
+
   },
 };
 
@@ -88,6 +91,13 @@ enum QuestLevel {
   Middle = 'Средний',
   Hard = 'Сложный',
 }
+
+const BemBlock={
+  Map:{
+    Contacts: 'contacts__',
+    Booking: 'booking-',
+  }
+} as const
 
 enum Checkbox {
   Children = 'Со мной будут дети',
@@ -174,5 +184,6 @@ export {
   LegendName,
   SelectedInfo,
   SocialApplication,
-  ORGANIZATION_ADDRESS
+  ORGANIZATION_ADDRESS,
+  BemBlock
 };

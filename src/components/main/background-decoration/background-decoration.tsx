@@ -17,7 +17,7 @@ function BackgroundDecoration({
       <picture>
         <source
           type="image/webp"
-          srcSet={`img/content/maniac/maniac${blurImg}size-m.webp, img/content/maniac/maniac${blurImg}size-m@2x.webp 2x`}
+          srcSet={`/img/content/maniac/maniac${blurImg}size-m.webp, img/content/maniac/maniac${blurImg}size-m@2x.webp 2x`}
         />
         <img
           src={`img/content/maniac/maniac${blurImg}size-m.jpg`}

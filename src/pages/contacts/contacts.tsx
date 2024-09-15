@@ -8,14 +8,13 @@ import {
   SubTitleName,
   TitleName,
   OrganizationContact,
-  ORGANIZATION_ADDRESS,
+  BemBlock,
 } from '../../const/template-const';
 import { OrganizationContactType } from '../../types/common';
 
 import { Map } from '../../components/map/map';
 
 function Contacts(): JSX.Element {
-  const location = [30, 60];
   const correctInfo = (item: OrganizationContactType, info: string) => {
     if (item === OrganizationContactKeys[0]) {
       const contactInfo = info.split(',');
@@ -28,6 +27,7 @@ function Contacts(): JSX.Element {
     }
     return info;
   };
+
 
   return (
     <div>
@@ -55,14 +55,13 @@ function Contacts(): JSX.Element {
                         {correctInfo(
                           contactItem[0] as keyof typeof OrganizationContact,
                           contactItem[1][1]
-
                         )}
                       </address>
                     </dd>
                   </div>
                 ))}
               </dl>
-              <Map bemBlock="contacts__" location={ORGANIZATION_ADDRESS} />
+              <Map bemBlock={BemBlock.Map.Contacts} />
             </div>
           </div>
         </main>
