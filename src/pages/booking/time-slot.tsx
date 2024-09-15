@@ -18,10 +18,10 @@ function TimeSlot({ dayName,slot }: TimeSlotProps) {
       <input
         type="radio"
         id={`${dayName}${timeInfo(time)}`}
-        name="date"
+        name="time"
         required
         disabled={!isAvailable}
-        defaultValue={`${dayName}${timeInfo(time)}`}
+        defaultValue={`${timeInfo(time)}`}
       />
       <span className="custom-radio__label">{time}</span>
     </label>

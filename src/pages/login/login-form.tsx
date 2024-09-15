@@ -7,13 +7,14 @@ import {
   PrivacyPolicyClass,
 } from '../../const/template-const';
 import { UserDataLoginType } from '../../types/common';
-import { UserData } from '../booking/user-data-to-booking';
+import { UserData } from '../booking/form-data';
 import { useNavigate } from 'react-router-dom';
 import { AppRoute } from '../../const/app-const';
 import { loginAction } from '../../store/api-actions/user-actions';
 import { store } from '../../store/store';
+import { FormButton } from '../booking/form-button';
 
-export type Inputs = {
+type Inputs = {
   [key: string]: string;
 };
 
@@ -27,7 +28,7 @@ function LoginForm(): JSX.Element {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit= () => {
+  const onSubmit = () => {
     store
       .dispatch(
         loginAction({
@@ -41,6 +42,7 @@ function LoginForm(): JSX.Element {
         error: 'Login failed',
         success: 'Logged in successfully',
       };
+    navigate(AppRoute.Home);
   };
 
   return (
@@ -65,13 +67,10 @@ function LoginForm(): JSX.Element {
           ))}
         </div>
 
-        <button
-          className="btn btn--accent btn--general login-form__submit"
-          type="submit"
-          onSubmit={() => navigate(AppRoute.Home)}
-        >
-          {ActionButton.Login}
-        </button>
+        <FormButton
+          bemBlock={'btn--general login-form__submit'}
+          name={ActionButton.Login}
+        />
       </div>
       <PrivacyPolicy className={PrivacyPolicyClass.Login} />
     </form>

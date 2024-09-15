@@ -6,6 +6,7 @@ import {
 import { UserDataFieldType } from '../../types/common';
 import { ErrorMessage } from '@hookform/error-message';
 import { Inputs } from '../login/login-form';
+import { store } from '../../store/store';
 type UserDataProps = {
   field: UserDataFieldType;
   register: UseFormRegister<FieldValues>;
@@ -20,8 +21,16 @@ function UserData({ field, register, errors }: UserDataProps): JSX.Element {
   const { name, label, id, pattern, placeholder, error } =
     userData[field as keyof typeof userData];
 
-  const currentPattern = new RegExp(pattern);
-  const currentMessage = new String(error) as string;
+    let currentPattern = new RegExp(pattern);
+    let currentMessage = new String(error) as string;
+
+    if (name === UserDataForBooking.Person.name) {
+    const peopleMinMax = store.getState().quest.quest?.peopleMinMax;
+    currentPattern = new RegExp(`^[${peopleMinMax![0]}-${peopleMinMax![1]}]$`);
+    currentMessage = new String(`Выберите ${peopleMinMax![0]} от ${peopleMinMax![1]} до участников`) as string;
+    }
+
+
   return (
     <div className="custom-input booking-form__input">
       <label className="custom-input__label" htmlFor={name}>

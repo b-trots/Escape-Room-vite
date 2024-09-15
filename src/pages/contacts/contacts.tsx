@@ -47,14 +47,14 @@ function Contacts(): JSX.Element {
             </div>
             <div className="contacts">
               <dl className="contacts__list">
-                {Object.entries(OrganizationContact).map((contactItem) => (
+                {(Object.entries(OrganizationContact).slice(0,-1)).map((contactItem) => (
                   <div className="contacts__item" key={contactItem[0]}>
                     <dt className="contacts__dt">{contactItem[1][0]}</dt>
                     <dd className="contacts__dd">
                       <address className="contacts__address">
                         {correctInfo(
                           contactItem[0] as keyof typeof OrganizationContact,
-                          contactItem[1][1]
+                          contactItem[1][1] as string
                         )}
                       </address>
                     </dd>

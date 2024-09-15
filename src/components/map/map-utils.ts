@@ -52,20 +52,19 @@ const useUpdateMarkers = (
   useEffect(() => {
     if (map) {
       const markerLayer = layerGroup().addTo(map);
-      if (!isBooking) {
+
         new Marker({
           lat: coords![0],
           lng: coords![1],
         })
           .setIcon(currentCustomIcon)
           .addTo(markerLayer);
-      } else {
+          if (isBooking) {
         booking!.forEach((place) => {
           const marker = new Marker({
             lat: place.location.coords[0],
             lng: place.location.coords[1],
           }).on('click', () => onClick!(place));
-console.log(place.id, activeBooking!.id);
           marker
             .setIcon(
               activeBooking!.id !== undefined && place.id === activeBooking!.id
@@ -74,12 +73,12 @@ console.log(place.id, activeBooking!.id);
             )
             .addTo(markerLayer);
         });
+      }
         return () => {
           map.removeLayer(markerLayer);
         };
-      }
     }
-  }, [map, booking,activeBooking]);
+  }, [map, booking,activeBooking,coords, bemBlock]);
 };
 
 export { adaptLocation, useUpdateLocation, useUpdateMarkers };

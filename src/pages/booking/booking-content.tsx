@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { BemBlock, SelectedInfo, TitleName } from '../../const/template-const';
+import { BemBlock, TitleName } from '../../const/template-const';
 import { BookingType } from '../../types/booking';
 import { Quest } from '../../types/quest';
 import { Map } from '../../components/map/map';
+import { BookingForm } from './booking-form';
 
 type SelectedAddressProps = {
   quest: Quest;
@@ -15,8 +16,6 @@ function BookingContent({ quest, booking}: SelectedAddressProps): JSX.Element {
 
   const handlePlaceSelect = (place: BookingType) => {
     setActivePlace(place);
-    console.log(booking);
-
   };
 
   return (
@@ -37,7 +36,7 @@ function BookingContent({ quest, booking}: SelectedAddressProps): JSX.Element {
           onClick={handlePlaceSelect}
         />
       </div>
-      {/* <BookingForm location={activeLocation} /> */}
+      <BookingForm location={activePlace} />
     </>
   );
 }

@@ -32,8 +32,6 @@ function Booking(): JSX.Element {
       ]);
     }
   }, [id, dispatch, currentId]);
-
-
   if (quest===null || booking.length === 0) {
     return <ShowLoading />;
   } else {

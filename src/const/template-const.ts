@@ -1,5 +1,3 @@
-import { Coords } from '../types/booking';
-
 const GeneralNav = {
   Home: 'Квесты',
   Contacts: 'Контакты',
@@ -11,7 +9,7 @@ const OrganizationContact = {
   OpeningHours: ['Режим работы', 'Ежедневно, с 10:00 до 22:00'],
   Phone: ['Телефон', '8 (000) 111-11-11'],
   Email: ['E–mail', 'info@escape-room.ru'],
-  Coords: [59.970348, 30.316003] as Coords,
+  Coords: [59.970348, 30.316003],
 };
 
 const OrganizationContactKeys = Object.keys(OrganizationContact);
@@ -23,7 +21,8 @@ const UserDataForBooking = {
     id: 'name',
     name: 'name',
     placeholder: 'Имя',
-    // pattern: `[А-Яа-яЁёA-Za-z'- ]{1,}`,
+    pattern: '^[a-zA-Z0-9]{1,15}$',
+    error: 'Имя может содержать только буквы и цифры, не более 15 символов',
   },
   Tel: {
     label: 'Контактный телефон',
@@ -31,7 +30,9 @@ const UserDataForBooking = {
     id: 'tel',
     name: 'tel',
     placeholder: 'Телефон',
-    // pattern: `[0-9]{10,}`,
+    pattern:
+      '(?:([+]d{1,4})[-.s]?)?(?:[(](d{1,3})[)][-.s]?)?(d{1,4})[-.s]?(d{1,4})[-.s]?(d{1,9})',
+    error: 'Введите телефон в формате: +7 (123) 456-78-90',
   },
   Person: {
     label: 'Количество участников',
@@ -39,12 +40,11 @@ const UserDataForBooking = {
     id: 'person',
     name: 'person',
     placeholder: 'Количество участников',
-    // pattern: `[0-9]{10,}`,
   },
 };
 
 const UserDataForLogin = {
-  email: {
+  Email: {
     label: 'E – mail',
     type: 'email',
     id: 'email',
@@ -53,7 +53,7 @@ const UserDataForLogin = {
     pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+.+.[a-zA-Z]{2,4}$',
     error: 'Введите e-mail в формате: example@example.com',
   },
-  password: {
+  Password: {
     label: 'Пароль',
     type: 'password',
     id: 'password',
@@ -61,7 +61,6 @@ const UserDataForLogin = {
     placeholder: 'Пароль',
     pattern: '^(?=.*[0-9])(?=.*[a-zA-Z])(?!.* ).{3,15}$',
     error: 'От 3 до 15 символов, минимум 1 буква, минимум 1 цифра',
-
   },
 };
 
@@ -92,12 +91,12 @@ enum QuestLevel {
   Hard = 'Сложный',
 }
 
-const BemBlock={
-  Map:{
+const BemBlock = {
+  Map: {
     Contacts: 'contacts__',
     Booking: 'booking-',
-  }
-} as const
+  },
+} as const;
 
 enum Checkbox {
   Children = 'Со мной будут дети',
@@ -185,5 +184,5 @@ export {
   SelectedInfo,
   SocialApplication,
   ORGANIZATION_ADDRESS,
-  BemBlock
+  BemBlock,
 };
