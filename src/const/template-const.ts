@@ -10,6 +10,7 @@ const OrganizationContact = {
   Phone: ['Телефон', '8 (000) 111-11-11'],
   Email: ['E–mail', 'info@escape-room.ru'],
 };
+const ORGANIZATION_ADDRESS = [59.970348, 30.316003]
 
 const OrganizationContactKeys = Object.keys(OrganizationContact);
 
@@ -173,4 +174,5 @@ export {
   LegendName,
   SelectedInfo,
   SocialApplication,
+  ORGANIZATION_ADDRESS
 };

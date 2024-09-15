@@ -28,7 +28,10 @@ function Map({ bemBlock, booking, currentBooking, onClick }: MapProps) {
   const map = useMap({ mapRef, currentLocation });
 
   useUpdateLocation(map, currentLocation);
+
+  if (isBooking()) {
   useUpdateMarkers(map, booking, currentBooking, onClick);
+  }
 
   return (
     <div className={`${bemBlock}map`}>

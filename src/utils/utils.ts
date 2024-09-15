@@ -9,4 +9,5 @@ const getFilterParameters = <T, U>(currentFilter: T, filterType: U) => {
   return filterType[capitalizedFilter as keyof typeof filterType];
 };
 
+
 export { toBigLetter, toSmallLetter, getFilterParameters };

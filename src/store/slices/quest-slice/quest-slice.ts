@@ -1,12 +1,14 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { RequestStatus, SliceName } from '../../../const/app-const';
 import { QuestSlice } from '../../../types/store-types/slices-types';
 import { questAction, questsAction } from '../../api-actions/quest-actions';
 
 const questState: QuestSlice = {
   quests: [],
+  activeQuestId:'',
   quest: null,
   requestStatus: RequestStatus.Idle,
+  isError: '',
 };
 
 const questSlice = createSlice({
@@ -35,13 +37,19 @@ const questSlice = createSlice({
         state.quest = action.payload;
       });
   },
-  reducers: {},
+  reducers: { setActiveQuestId: (state, action: PayloadAction<string>) => {
+    state.activeQuestId = action.payload;
+  },},
   selectors: {
     quests: (state) => state.quests,
-    questById: (state) => state.quest,
+    activeQuestId: (state) => state.activeQuestId,
+    quest: (state) => state.quest,
+    isError: (state) => state.isError,
   },
 });
 
 const questSelectors = questSlice.selectors;
+const { setActiveQuestId } = questSlice.actions;
+const questActions = questSlice.actions;
 
-export { questSelectors, questSlice };
+export { questSelectors, questSlice, questActions,setActiveQuestId };

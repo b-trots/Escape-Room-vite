@@ -6,8 +6,10 @@ import { AuthStatusValues } from '../user';
 
 type QuestSlice = {
   quests: QuestPreview[];
+  activeQuestId: string;
   quest: Quest | null;
   requestStatus: RequestStatus;
+  isError: string;
 };
 
 type BookingSlice = {

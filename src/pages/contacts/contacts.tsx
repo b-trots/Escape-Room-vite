@@ -1,7 +1,21 @@
+import React from 'react';
+import { Footer } from '../../components/footer/footer';
+import { Header } from '../../components/header/header';
+import { BackgroundDecoration } from '../../components/main/background-decoration/background-decoration';
+import { FirstComponent } from '../../components/main/first-component/first-component';
+import {
+  OrganizationContactKeys,
+  SubTitleName,
+  TitleName,
+  OrganizationContact,
+  ORGANIZATION_ADDRESS,
+} from '../../const/template-const';
+import { OrganizationContactType } from '../../types/common';
+
+import { Map } from '../../components/map/map';
 
 function Contacts(): JSX.Element {
-  const booking = generateBooking()[0];
-  const { location } = booking;
+  const location = [30, 60];
   const correctInfo = (item: OrganizationContactType, info: string) => {
     if (item === OrganizationContactKeys[0]) {
       const contactInfo = info.split(',');
@@ -41,13 +55,14 @@ function Contacts(): JSX.Element {
                         {correctInfo(
                           contactItem[0] as keyof typeof OrganizationContact,
                           contactItem[1][1]
+
                         )}
                       </address>
                     </dd>
                   </div>
                 ))}
               </dl>
-              <Map bemBlock="contacts__" location={location} />
+              <Map bemBlock="contacts__" location={ORGANIZATION_ADDRESS} />
             </div>
           </div>
         </main>

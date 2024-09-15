@@ -1,21 +1,22 @@
 import { Link } from 'react-router-dom';
-import { Quest } from '../../../types/quest';
+import { Quest, QuestPreview } from '../../../types/quest';
 import { correctTime } from '../../../utils/time-utils';
 import { CancelButton } from './cancel-button';
 import { AppRoute } from '../../../const/app-const';
+import { useActionCreators } from '../../../hooks/store';
+import { questActions } from '../../../store/slices/quest-slice/quest-slice';
 
 type QuestCardProps = {
-  quest: Pick<
-    Quest,
-    'id' | 'title' | 'previewImg' | 'previewImgWebp' | 'level' | 'peopleMinMax'
-  >;
+  quest: QuestPreview;
   reservation?: Pick<
     ReservationType,
     'date' | 'time' | 'location' | 'peopleCount'
   >;
+  onClick: (quest:QuestPreview) => void;
 };
 
-function QuestCard({ quest, reservation }: QuestCardProps): JSX.Element {
+function QuestCard({ quest, reservation, onClick }: QuestCardProps): JSX.Element {
+  const { setActiveQuestId } = useActionCreators(questActions);
   const { id, title, previewImg, previewImgWebp, level, peopleMinMax } = quest;
 
   const showQuestInfo = () => {
@@ -33,6 +34,8 @@ function QuestCard({ quest, reservation }: QuestCardProps): JSX.Element {
     reservation
       ? `${reservation.peopleCount} чел`
       : `${peopleMinMax[0]}–${peopleMinMax[1]} чел`;
+
+
 
   return (
     <div className="quest-card">
@@ -56,6 +59,7 @@ function QuestCard({ quest, reservation }: QuestCardProps): JSX.Element {
           <Link
             className="quest-card__link"
             to={AppRoute.Quest.replace(':id', id)}
+            onClick={() => onClick(quest)}
           >
             {title}
           </Link>

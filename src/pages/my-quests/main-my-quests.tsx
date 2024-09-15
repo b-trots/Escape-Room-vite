@@ -3,7 +3,6 @@ import { QuestCard } from '../../components/main/quest-card/quest-card';
 import { TitleName } from '../../const/template-const';
 
 function MainMyQuests(): JSX.Element {
-  const reservations = generateReservations();
 
   return (
     <main className="page-content decorated-page">
@@ -15,13 +14,13 @@ function MainMyQuests(): JSX.Element {
           </h1>
         </div>
         <div className="cards-grid">
-          {reservations.map((reservation) => (
+          {/* {reservations.map((reservation) => (
             <QuestCard
               key={reservation.id}
               quest={reservation.quest}
               reservation={reservation}
             />
-          ))}
+          ))} */}
         </div>
       </div>
     </main>
