@@ -14,8 +14,9 @@ import { loginAction } from '../../store/api-actions/user-actions';
 import { store } from '../../store/store';
 import { FormButton } from '../booking/form-button';
 
-export type Inputs = {
-  [key: string]: string;
+export type LoginInputsType = {
+  email: string;
+  password: string;
 };
 
 function LoginForm(): JSX.Element {
@@ -26,22 +27,15 @@ function LoginForm(): JSX.Element {
     watch,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<LoginInputsType>();
 
   const onSubmit = () => {
-    store
-      .dispatch(
-        loginAction({
-          login: watch().email,
-          password: watch().password,
-        })
-      )
-      .unwrap(),
-      {
-        loading: 'Logging in...',
-        error: 'Login failed',
-        success: 'Logged in successfully',
-      };
+    store.dispatch(
+      loginAction({
+        login: watch().email,
+        password: watch().password,
+      })
+    );
     navigate(AppRoute.Home);
   };
 
@@ -50,6 +44,7 @@ function LoginForm(): JSX.Element {
       className="login-form"
       action="https://echo.htmlacademy.ru/"
       method="post"
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="login-form__inner-wrapper">

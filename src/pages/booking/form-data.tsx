@@ -1,4 +1,4 @@
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
+import { FieldErrors, FieldValues, Path, UseFormRegister } from 'react-hook-form';
 import {
   UserDataForBooking,
   UserDataForLogin,
@@ -6,11 +6,19 @@ import {
 import { UserDataFieldType } from '../../types/common';
 import { ErrorMessage } from '@hookform/error-message';
 import { store } from '../../store/store';
-import { BookingInputsType } from './booking-form';
+import { HTMLInputTypeAttribute } from 'react';
+
+type InputsProps<T extends FieldValues> = {
+  type: HTMLInputTypeAttribute;
+  name: Path<T>;
+  placeholder?: string;
+  register: UseFormRegister<T>;
+};
+
 type UserDataProps = {
   field: UserDataFieldType;
-  register: UseFormRegister<BookingInputsType>;
-  errors: FieldErrors<BookingInputsType>;
+  register: UseFormRegister<InputsProps>
+  errors: FieldErrors<FieldErrors>;
 };
 
 function UserData({ field, register, errors }: UserDataProps): JSX.Element {
@@ -26,10 +34,12 @@ function UserData({ field, register, errors }: UserDataProps): JSX.Element {
 
   if (name === UserDataForBooking.Person.name) {
     const peopleMinMax = store.getState().quest.quest?.peopleMinMax;
-    currentPattern = new RegExp(`^[${peopleMinMax![0]}-${peopleMinMax![1]}]$`);
-    currentMessage = new String(
-      `Выберите ${peopleMinMax![0]} от ${peopleMinMax![1]} до участников`
-    ) as string;
+    if (peopleMinMax) {
+      currentPattern = new RegExp(`^[${peopleMinMax[0]}-${peopleMinMax[1]}]$`);
+      currentMessage = new String(
+        `Выберите ${peopleMinMax[0]} от ${peopleMinMax[1]} до участников`
+      ) as string;
+    }
   }
 
   return (

@@ -16,7 +16,13 @@ function useMap({
   currentLocation,
   bemBlock,
 }: UseMapProps): Map | null {
-  const options = bemBlock === BemBlock.Map.Contacts ? interactionOptions : {};
+  const [options] = useState<Record<string, unknown>>(() => {
+    if (bemBlock === BemBlock.Map.Contacts) {
+      return interactionOptions;
+    }
+    return {};
+  });
+
   const [map, setMap] = useState<Map | null>(null);
   const isRenderedRef = useRef<boolean>(false);
   useEffect(() => {
@@ -38,7 +44,7 @@ function useMap({
       setMap(instance);
       isRenderedRef.current = true;
     }
-  }, [mapRef, currentLocation]);
+  }, [mapRef, currentLocation, options]);
 
   return map;
 }

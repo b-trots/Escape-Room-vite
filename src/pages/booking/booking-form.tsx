@@ -19,6 +19,7 @@ import { useRef, useState } from 'react';
 import { ChildrenCheckbox } from './children-checkbox';
 import { store } from '../../store/store';
 import { bookingAction } from '../../store/api-actions/booking-actions';
+import { AppRoute } from '../../const/app-const';
 
 type BookingFormProps = {
   location: BookingType;
@@ -34,6 +35,7 @@ export type BookingInputsType = {
 function BookingForm({ location }: BookingFormProps): JSX.Element {
   const questId = useAppSelector(questSelectors.activeQuestId);
   const { slots } = location;
+  const navigate = useNavigate();
 
   const formRef = useRef<HTMLFormElement>(null);
   const {
@@ -48,7 +50,7 @@ function BookingForm({ location }: BookingFormProps): JSX.Element {
     setIsChildrenChecked(!isChildrenChecked);
   };
 
-  const onSubmit = async () => {
+  const onSubmit = () => {
     const inCorrectTime = watch('time').slice(watch('time').length - 6);
     const parsedTime = inCorrectTime.split(/(\d+)/);
     const correctTime = `${parsedTime[1]}:${parsedTime[3]}`;
@@ -68,22 +70,9 @@ function BookingForm({ location }: BookingFormProps): JSX.Element {
       placeId: location.id,
     };
 
-    console.log(bookingInfo);
-    return (
-      store.dispatch(bookingAction({ questId, bookingInfo })).unwrap(),
-      {
-        loading: 'Logging in...',
-        error: 'Login failed',
-        success: 'Logged in successfully',
-      }
-    );
-    // navigate(AppRoute.MyQuests);
+    navigate(AppRoute.MyQuests);
+    store.dispatch(bookingAction({ questId, bookingInfo })).unwrap();
   };
-
-  // const handleFormSubmit = (evt:React.FormEvent) => {
-  //   evt.preventDefault();
-  //   handleSubmit(onSubmit);
-  // };
 
   return (
     <form
@@ -91,6 +80,7 @@ function BookingForm({ location }: BookingFormProps): JSX.Element {
       action="https://echo.htmlacademy.ru/"
       method="post"
       ref={formRef}
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onSubmit={handleSubmit(onSubmit)}
     >
       <fieldset className="booking-form__section">

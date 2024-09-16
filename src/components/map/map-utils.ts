@@ -50,33 +50,34 @@ const useUpdateMarkers = (
   useEffect(() => {
     if (map) {
       const markerLayer = layerGroup().addTo(map);
-
-      new Marker({
-        lat: coords![0],
-        lng: coords![1],
-      })
-        .setIcon(currentCustomIcon)
-        .addTo(markerLayer);
-      if (isBooking) {
-        booking!.forEach((place) => {
-          const marker = new Marker({
-            lat: place.location.coords[0],
-            lng: place.location.coords[1],
-          }).on('click', () => onClick!(place));
-          marker
-            .setIcon(
-              activeBooking!.id !== undefined && place.id === activeBooking!.id
-                ? currentCustomIcon
-                : defaultCustomIcon
-            )
-            .addTo(markerLayer);
-        });
+      if (coords && activeBooking && onClick && booking) {
+        new Marker({
+          lat: coords[0],
+          lng: coords[1],
+        })
+          .setIcon(currentCustomIcon)
+          .addTo(markerLayer);
+        if (isBooking) {
+          booking.forEach((place) => {
+            const marker = new Marker({
+              lat: place.location.coords[0],
+              lng: place.location.coords[1],
+            }).on('click', () => onClick(place));
+            marker
+              .setIcon(
+                activeBooking.id && place.id === activeBooking.id
+                  ? currentCustomIcon
+                  : defaultCustomIcon
+              )
+              .addTo(markerLayer);
+          });
+        }
+        return () => {
+          map.removeLayer(markerLayer);
+        };
       }
-      return () => {
-        map.removeLayer(markerLayer);
-      };
     }
-  }, [map, booking, activeBooking, coords, bemBlock]);
+  }, [map, booking, activeBooking, coords, bemBlock, isBooking, onClick]);
 };
 
 export { adaptLocation, useUpdateLocation, useUpdateMarkers };

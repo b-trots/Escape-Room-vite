@@ -4,11 +4,13 @@ import { correctTime } from '../../../utils/time-utils';
 import { CancelButton } from './cancel-button';
 import { AppRoute } from '../../../const/app-const';
 import { ReservationPreview } from '../../../types/reservation';
+import { deleteReservationAction } from '../../../store/api-actions/reservation-actions';
+import { store } from '../../../store/store';
 
 type QuestCardProps = {
   quest: QuestPreview;
-  reservation?:ReservationPreview;
-  onClick: (quest: QuestPreview) => void;
+  reservation?: ReservationPreview;
+  onClick?: (quest: QuestPreview) => void;
 };
 
 function QuestCard({
@@ -27,6 +29,11 @@ function QuestCard({
         </span>
       );
     }
+  };
+
+  const onCancelClick = () => {
+    const questId = id;
+    store.dispatch(deleteReservationAction(questId)).unwrap();
   };
 
   const showPeopleCount = () =>
@@ -56,7 +63,7 @@ function QuestCard({
           <Link
             className="quest-card__link"
             to={AppRoute.Quest.replace(':id', id)}
-            onClick={() => onClick(quest)}
+            onClick={onClick ? () => onClick(quest) : undefined}
           >
             {title}
           </Link>
@@ -76,7 +83,7 @@ function QuestCard({
             {level}
           </li>
         </ul>
-        {reservation && <CancelButton />}
+        {reservation && <CancelButton onClick={onCancelClick} />}
       </div>
     </div>
   );

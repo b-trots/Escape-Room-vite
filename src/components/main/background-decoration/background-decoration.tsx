@@ -9,7 +9,6 @@ type BackgroundDecorationProps = {
 function BackgroundDecoration({
   isBlur,
 }: BackgroundDecorationProps): JSX.Element {
-  const blurImg = isBlur ? '-bg-' : '-';
   const blurImgSize = isBlur
     ? BackgroundSetting.Blur
     : BackgroundSetting.Original;
@@ -22,7 +21,6 @@ function BackgroundDecoration({
       <picture>
         <source
           type="image/webp"
-          // srcSet={`/img/content/maniac/maniac${blurImg}size-m.webp, img/content/maniac/maniac${blurImg}size-m@2x.webp 2x`}
           srcSet={backgroundImageWebp}
         />
         <img
