@@ -130,6 +130,7 @@ enum TitleName {
   Booking = 'Бронирование квеста',
   ContactInfo = 'Контакты',
   MyQuests = 'Мои бронирования',
+  Quest = 'Выберите квест'
 }
 
 enum LoginLogoutButton {

@@ -18,7 +18,6 @@ import { questSelectors } from '../../store/slices/quest-slice/quest-slice';
 import { useRef, useState } from 'react';
 import { ChildrenCheckbox } from './children-checkbox';
 import { store } from '../../store/store';
-import { AppRoute } from '../../const/app-const';
 import { bookingAction } from '../../store/api-actions/booking-actions';
 
 type BookingFormProps = {
@@ -34,7 +33,6 @@ export type BookingInputsType = {
 
 function BookingForm({ location }: BookingFormProps): JSX.Element {
   const questId = useAppSelector(questSelectors.activeQuestId);
-  const navigate = useNavigate();
   const { slots } = location;
 
   const formRef = useRef<HTMLFormElement>(null);

@@ -1,4 +1,6 @@
 import { BackgroundSetting } from '../../../const/app-const';
+import { useAppSelector } from '../../../hooks/store';
+import { questSelectors } from '../../../store/slices/quest-slice/quest-slice';
 
 type BackgroundDecorationProps = {
   isBlur?: boolean;
@@ -11,17 +13,21 @@ function BackgroundDecoration({
   const blurImgSize = isBlur
     ? BackgroundSetting.Blur
     : BackgroundSetting.Original;
+  const quest = useAppSelector(questSelectors.quest);
+  const backgroundImageWebp = quest?.coverImgWebp;
+  const backgroundImage = quest?.coverImg;
 
   return (
     <div className="decorated-page__decor" aria-hidden="true">
       <picture>
         <source
           type="image/webp"
-          srcSet={`/img/content/maniac/maniac${blurImg}size-m.webp, img/content/maniac/maniac${blurImg}size-m@2x.webp 2x`}
+          // srcSet={`/img/content/maniac/maniac${blurImg}size-m.webp, img/content/maniac/maniac${blurImg}size-m@2x.webp 2x`}
+          srcSet={backgroundImageWebp}
         />
         <img
-          src={`img/content/maniac/maniac${blurImg}size-m.jpg`}
-          srcSet={`img/content/maniac/maniac${blurImg}size-m@2x.jpg 2x`}
+          src={backgroundImage}
+          srcSet={backgroundImage}
           width={1366}
           height={blurImgSize}
           alt=""

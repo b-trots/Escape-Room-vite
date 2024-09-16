@@ -1,7 +1,11 @@
 import { RequestStatus } from '../../const/app-const';
+import {
+  FILTER_BY_COMPLEXITY,
+  FILTER_BY_TOPIC,
+} from '../../const/template-const';
 import { BookingType } from '../booking';
 import { Quest, QuestPreview } from '../quest';
-import { Reservation } from '../reservation';
+import { ReservationType } from '../reservation';
 import { AuthStatusValues } from '../user';
 
 type QuestSlice = {
@@ -10,11 +14,16 @@ type QuestSlice = {
   quest: Quest | null;
   requestStatus: RequestStatus;
   isError: string;
+  filterByTopic: FilterByTopicType;
+  filterByComplexity: FilterByComplexityType;
 };
+
+type FilterByTopicType = (typeof FILTER_BY_TOPIC)[number];
+type FilterByComplexityType = (typeof FILTER_BY_COMPLEXITY)[number];
 
 type BookingSlice = {
   bookingInfo: BookingType[];
-  reservation: Reservation[];
+  reservation: ReservationType[];
   requestStatus: RequestStatus;
 };
 
@@ -23,4 +32,10 @@ type UserSlice = {
   userEmail: string;
 };
 
-export type { QuestSlice, BookingSlice, UserSlice };
+export type {
+  QuestSlice,
+  BookingSlice,
+  UserSlice,
+  FilterByTopicType,
+  FilterByComplexityType,
+};

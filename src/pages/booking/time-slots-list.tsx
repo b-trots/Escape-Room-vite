@@ -10,7 +10,7 @@ type TimeSlotListProps = {
   register: UseFormRegister<BookingInputsType>;
 };
 
-function TimeSlotsList({ slots, register}: TimeSlotListProps): JSX.Element {
+function TimeSlotsList({ slots, register }: TimeSlotListProps): JSX.Element {
   const bothDays = Object.entries(slots);
 
   return (
@@ -22,7 +22,12 @@ function TimeSlotsList({ slots, register}: TimeSlotListProps): JSX.Element {
           </legend>
           <div className="booking-form__date-inner-wrapper">
             {day[1].map((time) => (
-              <TimeSlot key={time.time} dayName={day[0]} slot={time} register={register}/>
+              <TimeSlot
+                key={time.time}
+                dayName={day[0]}
+                slot={time}
+                register={register}
+              />
             ))}
           </div>
         </fieldset>

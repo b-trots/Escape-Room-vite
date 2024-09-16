@@ -7,13 +7,11 @@ import {
   setActiveQuestId,
 } from '../../store/slices/quest-slice/quest-slice';
 import { bookingSelectors } from '../../store/slices/booking-slice/booking-slice';
-
 import { Header } from '../../components/header/header';
 import { BackgroundDecoration } from '../../components/main/background-decoration/background-decoration';
 import { questAction } from '../../store/api-actions/quest-actions';
 import { ShowLoading } from '../../components/main/show-loading';
 import { Footer } from '../../components/footer/footer';
-
 import { BookingContent } from './booking-content';
 import { BackgroundVector } from '../../components/main/background-vector/background-vector';
 import { useChangeTitle } from '../../hooks/title';

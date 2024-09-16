@@ -8,8 +8,7 @@ type BookButtonProps = {
   id: string;
 };
 function BookButton({ id }: BookButtonProps): JSX.Element {
-
-  const handleMouseClick=() => dispatch(bookingInfoAction(id));
+  const handleMouseClick = () => dispatch(bookingInfoAction(id));
   return (
     <Link
       to={AppRoute.Booking.replace(':id', id)}
