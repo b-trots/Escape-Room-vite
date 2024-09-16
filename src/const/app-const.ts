@@ -8,19 +8,15 @@ const BackgroundSetting = {
   Blur: 1959,
 } as const;
 
-// const QUESTS = [
-//   'Склеп',
-//   'Маньяк',
-//   'Ритуал',
-//   'История призраков',
-//   'Тайны старого ососбняка',
-//   'Хижина в лесу',
-//   'Фатальный эксперимент',
-//   'Метро 2033',
-//   'Старый чердак',
-//   'Последний рубеж',
-//   'Марс-2056',
-// ];
+enum TitlePageName {
+  Title = 'Escape Room',
+  NotFound = 'Страница не найдена',
+  Booking = 'Бронирование квеста',
+  MyQuests = 'Мои бронирования',
+  Login = 'Авторизация',
+  Contacts = 'Контакты',
+  Quest = 'Квест'
+}
 
 const enum GeneralNavItem {
   Auth = 3,
@@ -127,4 +123,5 @@ export {
   AuthStatus,
   AppRoute,
   MapSetting,
+  TitlePageName,
 };

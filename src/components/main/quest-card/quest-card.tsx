@@ -3,21 +3,19 @@ import { QuestPreview } from '../../../types/quest';
 import { correctTime } from '../../../utils/time-utils';
 import { CancelButton } from './cancel-button';
 import { AppRoute } from '../../../const/app-const';
-import { useActionCreators } from '../../../hooks/store';
-import { questActions } from '../../../store/slices/quest-slice/quest-slice';
+import { ReservationPreview } from '../../../types/reservation';
 
 type QuestCardProps = {
   quest: QuestPreview;
-  reservation?: Pick<
-    ReservationType,
-
-    'date' | 'time' | 'location' | 'peopleCount'
-  >;
-  onClick: (quest:QuestPreview) => void;
+  reservation?:ReservationPreview;
+  onClick: (quest: QuestPreview) => void;
 };
 
-function QuestCard({ quest, reservation, onClick }: QuestCardProps): JSX.Element {
-  const { setActiveQuestId } = useActionCreators(questActions);
+function QuestCard({
+  quest,
+  reservation,
+  onClick,
+}: QuestCardProps): JSX.Element {
   const { id, title, previewImg, previewImgWebp, level, peopleMinMax } = quest;
 
   const showQuestInfo = () => {
@@ -35,8 +33,6 @@ function QuestCard({ quest, reservation, onClick }: QuestCardProps): JSX.Element
     reservation
       ? `${reservation.peopleCount} чел`
       : `${peopleMinMax[0]}–${peopleMinMax[1]} чел`;
-
-
 
   return (
     <div className="quest-card">

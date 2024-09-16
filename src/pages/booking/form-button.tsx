@@ -1,11 +1,10 @@
 type FormButtonProps = {
   bemBlock: string;
   name: string;
-  onClick: () => void;  
 };
-function FormButton({ bemBlock, name,onClick }: FormButtonProps): JSX.Element {
+function FormButton({ bemBlock, name }: FormButtonProps): JSX.Element {
   return (
-    <button className={`btn btn--accent ${bemBlock}`} type="submit" onClick={onClick}>
+    <button className={`btn btn--accent ${bemBlock}`} type="submit">
       {name}
     </button>
   );

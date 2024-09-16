@@ -1,6 +1,8 @@
 import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
-import { FirstComponent } from '../../components/main/first-component/first-component';
+import { BackgroundVector } from '../../components/main/background-vector/background-vector';
+import { TitlePageName } from '../../const/app-const';
+import { useChangeTitle } from '../../hooks/title';
 import { questsAction } from '../../store/api-actions/quest-actions';
 import { store } from '../../store/store';
 import { MainHome } from './main-home';
@@ -8,9 +10,10 @@ import { MainHome } from './main-home';
 store.dispatch(questsAction());
 
 function Home(): JSX.Element {
+  useChangeTitle(TitlePageName.Title);
   return (
     <div>
-      <FirstComponent />
+      <BackgroundVector />
       <div className="wrapper">
         <Header />
         <MainHome />

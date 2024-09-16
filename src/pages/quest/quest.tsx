@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
 import { BackgroundDecoration } from '../../components/main/background-decoration/background-decoration';
-import { FirstComponent } from '../../components/main/first-component/first-component';
+import { BackgroundVector } from '../../components/main/background-vector/background-vector';
 import { SelectedInfo } from '../../const/template-const';
 import { BookButton } from './book-button';
 import { useAppDispatch, useAppSelector } from '../../hooks/store';
@@ -10,8 +10,11 @@ import { ShowLoading } from '../../components/main/show-loading';
 import { questSelectors } from '../../store/slices/quest-slice/quest-slice';
 import { useEffect } from 'react';
 import { questAction } from '../../store/api-actions/quest-actions';
+import { useChangeTitle } from '../../hooks/title';
+import { TitlePageName } from '../../const/app-const';
 
 function Quest(): JSX.Element {
+  useChangeTitle(TitlePageName.Quest);
   const { id = '' } = useParams();
   const quest = useAppSelector(questSelectors.quest);
   const currentId = quest?.id ?? '';
@@ -29,7 +32,7 @@ function Quest(): JSX.Element {
     const { title, type, level, description, peopleMinMax } = quest;
     return (
       <div>
-        <FirstComponent />
+        <BackgroundVector />
         <div className="wrapper">
           <Header />
           <main className="decorated-page quest-page">

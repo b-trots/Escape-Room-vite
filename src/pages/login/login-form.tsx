@@ -14,7 +14,7 @@ import { loginAction } from '../../store/api-actions/user-actions';
 import { store } from '../../store/store';
 import { FormButton } from '../booking/form-button';
 
-type Inputs = {
+export type Inputs = {
   [key: string]: string;
 };
 

@@ -1,5 +1,3 @@
-const MAP_ZOOM = 5;
-
 const interactionOptions = {
   zoomControl: false,
   doubleClickZoom: false,
@@ -10,4 +8,4 @@ const interactionOptions = {
   scrollWheelZoom: false,
 };
 
-export { MAP_ZOOM, interactionOptions };
+export { interactionOptions };

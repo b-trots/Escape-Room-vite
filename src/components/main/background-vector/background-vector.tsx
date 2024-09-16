@@ -1,4 +1,4 @@
-function FirstComponent(): JSX.Element {
+function BackgroundVector(): JSX.Element {
   return (
     <div className="visually-hidden">
       <svg
@@ -302,4 +302,4 @@ function FirstComponent(): JSX.Element {
   );
 }
 
-export { FirstComponent };
+export { BackgroundVector };

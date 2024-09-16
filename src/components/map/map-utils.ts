@@ -21,7 +21,6 @@ const currentCustomIcon = new Icon({
   iconAnchor: [15, 40],
 });
 
-
 const adaptLocation = ([lat, lng]: Coords) => ({
   lat,
   lng,
@@ -48,18 +47,17 @@ const useUpdateMarkers = (
 ) => {
   const isBooking = bemBlock === BemBlock.Map.Booking;
 
-
   useEffect(() => {
     if (map) {
       const markerLayer = layerGroup().addTo(map);
 
-        new Marker({
-          lat: coords![0],
-          lng: coords![1],
-        })
-          .setIcon(currentCustomIcon)
-          .addTo(markerLayer);
-          if (isBooking) {
+      new Marker({
+        lat: coords![0],
+        lng: coords![1],
+      })
+        .setIcon(currentCustomIcon)
+        .addTo(markerLayer);
+      if (isBooking) {
         booking!.forEach((place) => {
           const marker = new Marker({
             lat: place.location.coords[0],
@@ -74,11 +72,11 @@ const useUpdateMarkers = (
             .addTo(markerLayer);
         });
       }
-        return () => {
-          map.removeLayer(markerLayer);
-        };
+      return () => {
+        map.removeLayer(markerLayer);
+      };
     }
-  }, [map, booking,activeBooking,coords, bemBlock]);
+  }, [map, booking, activeBooking, coords, bemBlock]);
 };
 
 export { adaptLocation, useUpdateLocation, useUpdateMarkers };

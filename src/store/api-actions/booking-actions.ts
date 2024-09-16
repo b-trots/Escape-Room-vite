@@ -15,13 +15,10 @@ const bookingInfoAction = appCreateAsyncThunk<BookingType[], string>(
 const bookingAction = appCreateAsyncThunk<
   void,
   { questId: string; bookingInfo: NewBooking }
->('data/booking', async ({ questId, bookingInfo }, { extra: api }) => {
+>('data/booking', async ({ questId }, { extra: api }) => {
   await api.post<{ bookingInfo: NewBooking }>(
-    `${APIRoute.Quest}${questId}APIRoute.Booking}`,
-    { bookingInfo }
+    `${APIRoute.Quest}/${questId}${APIRoute.Booking}`
   );
-
-  // store.dispatch(fetchGetCommentsAction(offerId));
 });
 
 export { bookingAction, bookingInfoAction };

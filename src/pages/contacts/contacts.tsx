@@ -1,8 +1,6 @@
 import React from 'react';
 import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
-import { BackgroundDecoration } from '../../components/main/background-decoration/background-decoration';
-import { FirstComponent } from '../../components/main/first-component/first-component';
 import {
   OrganizationContactKeys,
   SubTitleName,
@@ -13,8 +11,13 @@ import {
 import { OrganizationContactType } from '../../types/common';
 
 import { Map } from '../../components/map/map';
+import { BackgroundVector } from '../../components/main/background-vector/background-vector';
+import { BackgroundDecoration } from '../../components/main/background-decoration/background-decoration';
+import { useChangeTitle } from '../../hooks/title';
+import { TitlePageName } from '../../const/app-const';
 
 function Contacts(): JSX.Element {
+  useChangeTitle(TitlePageName.Contacts);
   const correctInfo = (item: OrganizationContactType, info: string) => {
     if (item === OrganizationContactKeys[0]) {
       const contactInfo = info.split(',');
@@ -28,10 +31,9 @@ function Contacts(): JSX.Element {
     return info;
   };
 
-
   return (
     <div>
-      <FirstComponent />
+      <BackgroundVector />
       <div className="wrapper">
         <Header />
         <main className="page-content decorated-page">
@@ -47,19 +49,21 @@ function Contacts(): JSX.Element {
             </div>
             <div className="contacts">
               <dl className="contacts__list">
-                {(Object.entries(OrganizationContact).slice(0,-1)).map((contactItem) => (
-                  <div className="contacts__item" key={contactItem[0]}>
-                    <dt className="contacts__dt">{contactItem[1][0]}</dt>
-                    <dd className="contacts__dd">
-                      <address className="contacts__address">
-                        {correctInfo(
-                          contactItem[0] as keyof typeof OrganizationContact,
-                          contactItem[1][1] as string
-                        )}
-                      </address>
-                    </dd>
-                  </div>
-                ))}
+                {Object.entries(OrganizationContact)
+                  .slice(0, -1)
+                  .map((contactItem) => (
+                    <div className="contacts__item" key={contactItem[0]}>
+                      <dt className="contacts__dt">{contactItem[1][0]}</dt>
+                      <dd className="contacts__dd">
+                        <address className="contacts__address">
+                          {correctInfo(
+                            contactItem[0] as keyof typeof OrganizationContact,
+                            contactItem[1][1] as string
+                          )}
+                        </address>
+                      </dd>
+                    </div>
+                  ))}
               </dl>
               <Map bemBlock={BemBlock.Map.Contacts} />
             </div>

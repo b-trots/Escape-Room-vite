@@ -4,6 +4,8 @@ const GeneralNav = {
   MyQuests: 'Мои бронирования',
 };
 
+const LOADING = 'Loading...';
+
 const OrganizationContact = {
   Address: ['Адрес', 'Санкт-Петербург, Набережная реки Карповка, д 5П'],
   OpeningHours: ['Режим работы', 'Ежедневно, с 10:00 до 22:00'],
@@ -30,8 +32,8 @@ const UserDataForBooking = {
     id: 'tel',
     name: 'tel',
     placeholder: 'Телефон',
-    pattern:
-      '(?:([+]d{1,4})[-.s]?)?(?:[(](d{1,3})[)][-.s]?)?(d{1,4})[-.s]?(d{1,4})[-.s]?(d{1,9})',
+    // pattern:
+    //   '(?:([+]d{1,4})[-.s]?)?(?:[(](d{1,3})[)][-.s]?)?(d{1,4})[-.s]?(d{1,4})[-.s]?(d{1,9})',
     error: 'Введите телефон в формате: +7 (123) 456-78-90',
   },
   Person: {
@@ -109,6 +111,7 @@ enum Contact {
 enum ActionButton {
   Booking = 'Забронировать',
   Login = 'Войти',
+  Cancel = 'Отменить',
 }
 
 enum FilterName {
@@ -183,6 +186,6 @@ export {
   LegendName,
   SelectedInfo,
   SocialApplication,
-  ORGANIZATION_ADDRESS,
   BemBlock,
+  LOADING,
 };

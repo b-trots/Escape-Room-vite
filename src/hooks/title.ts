@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { TitlePageName } from '../const/app-const';
 
 const restoreTitle = () => {
   const initialTitle = document.title;
@@ -11,7 +12,7 @@ function useChangeTitle(title: string) {
   useEffect(restoreTitle, []);
 
   useEffect(() => {
-    document.title = `6 Cities | ${title}`;
+    document.title = `${TitlePageName.Title} | ${title}`;
   }, [title]);
 }
 

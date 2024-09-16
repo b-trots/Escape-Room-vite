@@ -1,16 +1,16 @@
-import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
+import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import {
   UserDataForBooking,
   UserDataForLogin,
 } from '../../const/template-const';
 import { UserDataFieldType } from '../../types/common';
 import { ErrorMessage } from '@hookform/error-message';
-import { Inputs } from '../login/login-form';
 import { store } from '../../store/store';
+import { BookingInputsType } from './booking-form';
 type UserDataProps = {
   field: UserDataFieldType;
-  register: UseFormRegister<FieldValues>;
-  errors: FieldErrors<Inputs>;
+  register: UseFormRegister<BookingInputsType>;
+  errors: FieldErrors<BookingInputsType>;
 };
 
 function UserData({ field, register, errors }: UserDataProps): JSX.Element {
@@ -21,15 +21,16 @@ function UserData({ field, register, errors }: UserDataProps): JSX.Element {
   const { name, label, id, pattern, placeholder, error } =
     userData[field as keyof typeof userData];
 
-    let currentPattern = new RegExp(pattern);
-    let currentMessage = new String(error) as string;
+  let currentPattern = new RegExp(pattern);
+  let currentMessage = new String(error) as string;
 
-    if (name === UserDataForBooking.Person.name) {
+  if (name === UserDataForBooking.Person.name) {
     const peopleMinMax = store.getState().quest.quest?.peopleMinMax;
     currentPattern = new RegExp(`^[${peopleMinMax![0]}-${peopleMinMax![1]}]$`);
-    currentMessage = new String(`Выберите ${peopleMinMax![0]} от ${peopleMinMax![1]} до участников`) as string;
-    }
-
+    currentMessage = new String(
+      `Выберите ${peopleMinMax![0]} от ${peopleMinMax![1]} до участников`
+    ) as string;
+  }
 
   return (
     <div className="custom-input booking-form__input">
@@ -40,7 +41,7 @@ function UserData({ field, register, errors }: UserDataProps): JSX.Element {
         {...register(name, {
           required: {
             value: true,
-            message: `Заполните ${label}`,
+            message: 'Заполните',
           },
           pattern: {
             value: currentPattern,

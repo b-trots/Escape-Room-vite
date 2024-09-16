@@ -16,7 +16,7 @@ function useMap({
   currentLocation,
   bemBlock,
 }: UseMapProps): Map | null {
-  const options = bemBlock===BemBlock.Map.Contacts ? interactionOptions : {};
+  const options = bemBlock === BemBlock.Map.Contacts ? interactionOptions : {};
   const [map, setMap] = useState<Map | null>(null);
   const isRenderedRef = useRef<boolean>(false);
   useEffect(() => {
